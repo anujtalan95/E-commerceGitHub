@@ -1,0 +1,729 @@
+
+
+/* MAIN STYLE CSS FILE
+-------------------------------------------------- */
+
+/* Padding below the footer and lighter body text */
+
+body
+{
+    color: #5a5a5a;
+    background-color: #ededf5;
+}
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+.navbar-brand
+{
+    background-image: url('images/MainLogo.png');
+    background-size: cover;
+    width: 112px;
+}
+
+.navbar-wrapper
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+}
+
+/*------------ Navbar ---------------*/
+
+/*  Responsive CSS for search box and Header
+-------------------------------------------------------*/
+
+@media (min-width: 600px)
+{
+    #search-box
+    {
+        margin-left: 170px;
+        max-width: 520px;
+        margin-bottom: 58px;
+    }
+}
+
+@media (max-width: 599px)
+{
+    #search-box
+    {
+        position: absolute;
+        top: 70px;
+        left: 1px;
+        float: none;
+    }
+    .mdl-layout__header
+    {
+        height: 120px;
+    }
+    .cart
+    {
+        float: none;
+        position: absolute;
+        right: 1px;
+    }
+}
+
+.mdl-layout__header
+{
+    background-color: rgba(0, 0, 0, 0.72);
+}
+
+.mdl-layout__header .mdl-layout__drawer-button
+{
+    background-color: #424244;
+}
+
+/* Navbar dropdown menu style
+---------------------------------------------------*/
+
+.mdl-navigation .dropdown .dropdown-menu
+{
+    border-radius: 4px;
+    border: none;
+    text-transform: none;
+    min-width: 180px;
+    background: #253340;
+    margin: 0;
+}
+
+.mdl-navigation .dropdown .dropdown-menu a
+{
+    border-bottom: 1px solid #212e3a;
+    padding: 8px 20px;
+    color: #fff;
+    opacity: 1;
+}
+
+.mdl-navigation .dropdown .dropdown-menu a:hover
+{
+    background-color: #3f586e;
+}
+
+.mdl-navigation__link:hover
+{
+    background: #000;
+    text-decoration: none;
+}
+
+/*------------------------*/
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+
+@media (max-width:767px)
+{
+    .single-item
+    {
+        border-radius: 4px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 7px;
+    }
+}
+
+@media (max-width: 767px)
+{
+    .slide
+    {
+        height: 200px;
+    }
+}
+
+@media (min-width:768px)
+{
+    .slide
+    {
+        height: 300px;
+        padding: 200px 0;
+    }
+}
+
+.slide
+{
+    background-color: #a59c9c;
+    border-radius: 4px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+@media (min-width:768px)
+{
+    .single-item
+    {
+        margin-left: 40px;
+        margin-right: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: 8px;
+    }
+}
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider
+{
+    margin: 80px 0;
+}
+
+/* Thin out the marketing headings */
+
+.featurette-heading
+{
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+/* Products Container
+------------------------------------------------ */
+
+.products .col-md-3 img
+{
+    margin-left: 65px;
+}
+
+.products .col-md-3 h3
+{
+    margin-left: 65px;
+}
+
+.products .col-md-3 p
+{
+    margin-left: 75px;
+}
+
+.products .col-xs-6
+{
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.products
+{
+    background-color: #ffffff;
+    border-radius: 6px;
+}
+
+.products .row .col-xs-6 img
+{
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+.products .row .col-xs-6 img:hover
+{
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.products .row .col-xs-6 .product-img
+{
+    overflow: hidden;
+}
+
+.product-carousel .btn-default
+{
+    border: 2px solid #ec6952;
+    color: #ec6952;
+    font-weight: 600;
+}
+
+.product-carousel .btn-default:hover
+{
+    background: #ec6952;
+    color: #fff;
+}
+
+.product-carousel .col-xs-6:hover
+{
+    -webkit-box-shadow: 0px 0px 28px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 28px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 28px -2px rgba(0,0,0,0.75);
+}
+
+.product-carousel
+{
+    padding: 10px 5px;
+}
+
+.products .row
+{
+    padding-bottom: 12px;
+}
+
+/*Brand section
+---------------------------------------*/
+
+#brands
+{
+    margin-top: 9px;
+    margin-right: 11px;
+    margin-left: 15px;
+}
+
+#brands li > img
+{
+    opacity: 0.7;
+}
+
+#brands li > img:hover
+{
+    opacity: 1;
+}
+
+/* App Section
+------------------------------------------ */
+
+#app-section
+{
+    min-height: 400px;
+    background-image: url('images/bg-footer-1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+#app-section h2
+{
+    text-align: center;
+    font-weight: 300;
+    font-size: 36px;
+    color: #f7f3f3;
+    position: relative;
+    margin-top: 80px;
+}
+
+#app-logo
+{
+    margin-top: 73px;
+}
+
+#app-logo .col-md-6
+{
+}
+
+/* footer Section
+---------------------------------------------- */
+
+footer
+{
+    background-color: #20364a;
+}
+
+#footer-row h3
+{
+    font-size: 28px;
+    color: #ffffff;
+}
+
+#footer-row ul > li:hover
+{
+    color: #ec6952;
+}
+
+#footer-row ul > li
+{
+    color: #ffffff;
+    font-weight: normal;
+}
+
+#footer-row .social
+{
+    margin-bottom: 15px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+#footer-row .form-container p
+{
+    color: #fff;
+    white-space: nowrap;
+}
+
+#footer-row .col-xs-12
+{
+    padding-top: 20px;
+    padding-bottom: 22px;
+}
+
+#footer-row .social li > a .fa:hover
+{
+    color: #ec6952;
+}
+
+#formInput
+{
+    width: auto;
+    border-color: #eeeeee;
+    -webkit-opacity: 0.9;
+    -moz-opacity: 0.9;
+    opacity: 0.9;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+#subscribe-Button
+{
+    background: #5d80a1;
+    border-color: #5d80a1;
+    color: #fff;
+}
+
+#subscribe-Button:hover
+{
+    background-color: #43719d;
+}
+
+.bottom-bar
+{
+    background: #1e1e1e;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.bottom-bar small
+{
+    color: #bbbbbb;
+}
+
+/*  Login.html and signup.html style css
+-------------------------------------------------*/
+
+.login-box
+{
+    position: relative;
+    width: 90%;
+    max-width: 570px;
+    background: #FFF;
+    margin: 3em auto 4em;
+    cursor: auto;
+    border-radius: 0.25em;
+}
+
+#login-btn
+{
+    margin-top: 60px;
+    background: #ec694f;
+    color: #fff;
+    margin-left: 16%;
+    width: 65%;
+    height: 40px;
+}
+
+#register-btn
+{
+    margin-top: 17px;
+    background: #fff;
+    color: #ec694f;
+    margin-left: 16%;
+    height: 40px;
+    width: 65%;
+}
+
+.close
+{
+    color: #000;
+    float: right;
+    font-size: 47px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus
+{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#login-Modal {
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4);
+}
+
+#signup-Modal {
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4);
+}
+
+.cd-form
+{
+    padding-left: 20px;
+    padding-bottom: 45px;
+}
+
+.cd-form .mdl-textfield
+{
+    width: 65%;
+    margin-left: 16%;
+    top: 25px;
+}
+
+/* Cart page style css code
+----------------------------------------------------------*/
+
+/*-------RESPONSIVE CSS------*/
+
+/*--------Content box hide or show on screen sizes-------*/
+
+@media (max-width: 599px)
+{
+    #place-order-content
+    {
+        display: none;
+    }
+}
+
+@media (min-width: 600px)
+{
+    .btn-group
+    {
+        display: none;
+    }
+}
+
+#wrapper
+{
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#page-wrapper
+{
+    padding: 0 15px;
+    position: relative !important;
+    min-height: 568px;
+}
+
+.wrapper-content
+{
+    padding: 20px 0px 40px;
+}
+
+.ibox-content h1,
+.ibox-content h2,
+.ibox-content h3,
+.ibox-content h4,
+.ibox-content h5,
+.ibox-title h1,
+.ibox-title h2,
+.ibox-title h3,
+.ibox-title h4,
+.ibox-title h5
+{
+    margin-top: 10px;
+}
+
+.ibox
+{
+    clear: both;
+    padding: 0;
+    border-radius: 10px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    -webkit-box-shadow: 0px 3px 7px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 3px 7px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px 3px 7px -2px rgba(0,0,0,0.75);
+}
+
+.ibox:after,
+.ibox:before
+{
+    display: table;
+}
+
+.ibox-title
+{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #ffffff;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 2px 0 0;
+    color: inherit;
+    margin-bottom: 0;
+    padding: 15px 15px 7px;
+    min-height: 48px;
+}
+
+.ibox-content
+{
+    background-color: #ffffff;
+    color: inherit;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0;
+    padding: 10px 20px;
+}
+
+.ibox-content
+{
+    clear: both;
+}
+
+.ibox-title h5
+{
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 0 7px;
+    padding: 0;
+    text-overflow: ellipsis;
+    float: left;
+    font-weight: 600;
+    font-family: roboto;
+}
+
+#checkout-button
+{
+    float: right;
+}
+
+.btn-group
+{
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    background: #fff;
+    height: 53px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 8px;
+}
+
+.mdl-button span
+{
+    color: #fff;
+    font-family: roboto;
+}
+
+.mdl-button i
+{
+    color: #fff;
+}
+
+#place-order-content
+{
+    -webkit-box-shadow: -1px -1px 11px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px -1px 11px -2px rgba(0,0,0,0.75);
+    box-shadow: -1px -1px 11px -2px rgba(0,0,0,0.75);
+}
+
+/* Product Detail
+-------------------------------------*/
+
+.image-imitation
+{
+    background-color: #f8f8f9;
+    text-align: center;
+    padding: 200px 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 30px;
+}
+
+.product-detail .ibox-content
+{
+    padding: 15px 30px 20px;
+}
+
+.m-t-md
+{
+    margin-top: 20px;
+}
+
+.product-main-price small
+{
+    font-size: 20px;
+}
+
+#cart-btn
+{
+    color: #fff;
+    background: #ec694f;
+    font-weight: 600;
+    right: 10px;
+    width: 165px;
+}
+
+.slick-prev:before,
+.slick-next:before
+{
+    font-size: 30px;
+    line-height: 1;
+    color: #ec694f;
+}
+
+.slick-prev,.slick-next
+{
+    width: 35px;
+}
+
+@media (max-width:767px)
+{
+    .image-imitation
+    {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+    #cart-btn
+    {
+        right: 50px;
+    }
+}
+
+.font-bold
+{
+    font-weight: 600;
+}
+
+.m-b-xs
+{
+    margin-bottom: 5px;
+}
+
+.mdl-layout .space-line
+{
+    border-bottom: 1px solid #ccc;
+}
+
+.mdl-layout-title
+{
+    background: #424244;
+    color: #fff;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.mdl-navigation .fa
+{
+    padding-right: 15px;
+    font-size: 15px;
+}
+
