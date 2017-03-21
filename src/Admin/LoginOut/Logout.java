@@ -30,7 +30,7 @@ public class Logout extends HttpServlet {
 		
 		HttpSession session = request.getSession();	//current session being used by user is called
         session.invalidate();	//the session is destroyed and user is logged out
-        response.sendRedirect("index.html");	//user is directed to next page
+        response.sendRedirect("Adminlogin.html");	//user is directed to next page
 	}
 
 	/**
