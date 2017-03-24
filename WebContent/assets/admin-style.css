@@ -1,3 +1,5 @@
+
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300,500,700");
@@ -91,6 +93,7 @@ body.fixed-sidebar.mini-navbar .footer
 {
     margin: 0 0 0 0 !important;
 }
+
 body.mini-navbar .nav-header
 {
     padding: 0;
@@ -108,7 +111,6 @@ body.mini-navbar .navbar-default .nav li a span
 {
     display: inline-block;
 }
-
 
 @media (max-width: 768px)
 {
@@ -132,6 +134,7 @@ body.mini-navbar .navbar-default .nav li a span
 }
 
 /*--------- Main container-----*/
+
 #wrapper
 {
     width: 100%;
@@ -140,6 +143,7 @@ body.mini-navbar .navbar-default .nav li a span
 
 /* Side Menu
 -------------------------------------*/
+
 .navbar-default
 {
     background-color: transparent;
@@ -169,6 +173,7 @@ body.mini-navbar .navbar-default .nav li a span
 
 /* Navbar header for Admin profile display and Logo
 ------------------------------------------------------------*/
+
 .nav-header
 {
     padding: 33px 25px;
@@ -210,8 +215,6 @@ body.mini-navbar .navbar-default .nav li a span
 {
     color: #ffffff;
 }
-
-
 
 a
 {
@@ -298,6 +301,7 @@ body.mini-navbar.fixed-sidebar .profile-element,
 }
 
 /*-------- Top Navbar --------------*/
+
 .navbar
 {
     border: 0;
@@ -372,8 +376,8 @@ body.mini-navbar.fixed-sidebar .profile-element,
 #page-wrapper
 {
     padding: 0 15px;
-    min-height: 568px;
     position: relative !important;
+    min-height: 528px;
 }
 
 @media (min-width: 768px)
@@ -623,6 +627,7 @@ body.mini-navbar.fixed-sidebar .profile-element,
 
 /* Admin Footer
 -------------------------------*/
+
 .footer
 {
     background: none repeat scroll 0 0 white;
@@ -632,5 +637,49 @@ body.mini-navbar.fixed-sidebar .profile-element,
     padding: 10px 20px;
     position: absolute;
     right: 0;
+}
+
+.tabs-container .nav-tabs > li.active > a,
+.tabs-container .nav-tabs > li.active > a:hover,
+.tabs-container .nav-tabs > li.active > a:focus
+{
+    border: 1px solid #e7eaec;
+    border-bottom-color: transparent;
+    background-color: #fff;
+    color: #626262;
+}
+
+tabs-container .nav-tabs > li a:hover
+{
+    background: transparent;
+    border-color: transparent;
+}
+
+.tabs-container .nav-tabs
+{
+    border-bottom: 1px solid #e7eaec;
+}
+
+.tabs-container .panel-body
+{
+    background: #fff;
+    border: 1px solid #e7eaec;
+    border-radius: 2px;
+    padding: 20px;
+    position: relative;
+}
+
+#login-btn
+{
+    margin-top: 40px;
+    background: #ec694f;
+    color: #fff;
+    width: 300px;
+    height: 40px;
+    margin-bottom: 15px;
+}
+
+.btn-group .btn-primary
+{
 }
 
