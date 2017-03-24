@@ -117,4 +117,17 @@ $(document).ready(function () {
 
     });
 
+$(".mobile-catg").hide();
+$(".books-catg").hide();
+
+$("#mob-catg").click(function(){
+  $(".mobile-catg").show();
+  $(".books-catg").hide();
+});
+
+$("#book-catg").click(function(){
+  $(".books-catg").show();
+  $(".mobile-catg").hide();
+});
+
 });
