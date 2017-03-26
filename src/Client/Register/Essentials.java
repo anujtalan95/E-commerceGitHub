@@ -1,8 +1,8 @@
 package Client.Register;
 
+import Basic.ConnectionManager;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -47,8 +47,7 @@ public class Essentials extends HttpServlet {
 			String name=request.getParameter("name");	//name entered by user on the page is stored in a string
 			String email=request.getParameter("email");	//email entered by user on the page is stored in a string
 			String pwd=request.getParameter("pwd");	//password entered by user on the page is stored in a string
-			Class.forName("com.mysql.jdbc.Driver");	//returns com.mysql.jdbc.driver class needed to establish connection with DB
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/seo","root","MySQL");	//connection is initialized, port is given, DB name,password are given
+			con = ConnectionManager.getConnection();	//connection is initialized, port is given, DB name,password are given
 			st= con.createStatement();	//statement is initialized to be queried with the DB
 			
 			int i=st.executeUpdate("insert into client_m(email,name,pwd) values ('"+email+"','"+name+"','"+pwd+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB 

@@ -3,7 +3,6 @@ package Client.Register;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -13,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import Basic.ConnectionManager;
 
 /**
  * Servlet implementation class Details
@@ -56,8 +57,7 @@ public class Details extends HttpServlet {
 				String add_lin2=request.getParameter("add_lin2"); //address line 2 entered by user on the page is stored in a string
 				String state=request.getParameter("state"); //state entered by user on the page is stored in a string
 				String pin=request.getParameter("pin"); //PIN no entered by user on the page is stored in a string
-				Class.forName("com.mysql.jdbc.Driver");	//returns com.mysql.jdbc.driver class needed to establish connection with DB
-				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/seo","root","MySQL");	//connection is initialized, port is given, DB name,password are given
+				con = ConnectionManager.getConnection();	//connection is initialized, port is given, DB name,password are given
 				st= con.createStatement();	//statement is initialized to be queried with the DB
 				rs = st.executeQuery("select IFNULL(max(pid),0) from client_d where id='"+session.getAttribute("client")+"'");	//based on the ID of the client who has logged in, MAX(pid) taken, if there is no pID available 0 is taken
 				rs.next();	//the fisrt row of the resultset is selected

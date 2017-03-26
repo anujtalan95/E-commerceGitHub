@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Basic.ConnectionManager;
+
 /**
  * Servlet implementation class AddA
  */
@@ -51,8 +53,7 @@ public class AddA extends HttpServlet {
 			try{
 				String email=request.getParameter("email");	//email entered by user on the page is stored in a string
 				String pwd=request.getParameter("pwd"); //password entered by user on the page is stored in a string
-				Class.forName("com.mysql.jdbc.Driver");	//returns com.mysql.jdbc.driver class needed to establish connection with DB
-				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/seo","root","MySQL");	//connection is initialized, port is given, DB name,password are given
+				con = ConnectionManager.getConnection();	//connection is initialized, port is given, DB name,password are given
 				st= con.createStatement();	//statement is initialized to be queried with the DB
 				int i=st.executeUpdate("insert into admins(email,pwd) values ('"+email+"','"+pwd+"')");	//int i is used to execute statement, uploading email and password of the new user who is registering to the DB 
 				if(i>0)	//int i will be greater then 0 if the update to the DB was successful

@@ -75,9 +75,10 @@ public class total extends HttpServlet {
 					id=rs.getInt(1);
 					rs.close();
 					rs = st.executeQuery("select IFNULL(max(cid),0) from "+catg+" where id='"+id+"'");
+					rs.next();
 					cid=rs.getInt(1)+1;
 					
-					if(catg=="Mobiles"){
+					if(catg.equals("Mobiles")){
 						i=st.executeUpdate("insert into "+catg+"(id,cid,rom,color,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+rom+"','"+color+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
 					}
 					/*
@@ -94,8 +95,10 @@ public class total extends HttpServlet {
 				rs2.close();
 				rs2 = st.executeQuery("select IFNULL(max(cid),0) from "+catg+" where id='"+id+"'");
 				System.out.println("else loop");
+				rs2.next();
 				cid=rs2.getInt(1)+1;
-				if(catg=="Mobiles"){
+				System.out.println(cid);
+				if(catg.equals("Mobiles")){
 					i=st.executeUpdate("insert into "+catg+"(id,cid,rom,color,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+rom+"','"+color+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
 				}
 				/*
