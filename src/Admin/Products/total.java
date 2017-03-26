@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Basic.ConnectionManager;
+
 /**
  * Servlet implementation class total
  */
@@ -48,6 +50,7 @@ public class total extends HttpServlet {
 			Connection con=null;	//connection to the DB is declared
 			Statement st=null;	//statement to be sent to query the DB is declared
 			ResultSet rs=null;	//resultset to store values returned by the DB is declared
+			ResultSet rs2=null;	//resultset to store values returned by the DB is declared
 			try{
 				String descrip=request.getParameter("descrip");	//description is entered by user on the page is stored in a string
 				String name=request.getParameter("name");	//name of product entered by user on the page is stored in a string
@@ -55,9 +58,14 @@ public class total extends HttpServlet {
 				String mtitle=request.getParameter("mtitle");	//meta title for SEO is entered by user on the page is stored in a string
 				String mdescrip=request.getParameter("mdescrip");	//meta description for SEO is entered by user on the page is stored in a string
 				String mkeyword=request.getParameter("mkeyword");	//meta keyword for SEO is entered by user on the page is stored in a string
+				String rom=request.getParameter("rom");
+				String color=request.getParameter("color");
+				String specs=request.getParameter("specs");
+				String price=request.getParameter("price");
+				String photo=request.getParameter("photo");
+				String stock=request.getParameter("stock");
 				String catg=request.getParameter("catg");	//category of the product is entered by user on the page is stored in a string
-				Class.forName("com.mysql.jdbc.Driver");	//returns com.mysql.jdbc.driver class needed to establish connection with DB
-				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/seo","root","MySQL");	//connection is initialized, port is given, DB name,password are given
+				con = ConnectionManager.getConnection();	//connection is initialized, port is given, DB name,password are given
 				st= con.createStatement();	//statement is initialized to be queried with the DB
 				rs= st.executeQuery("select * plist where name='"+name+"' and brand= '"+brand+"' and catg= '"+catg+"'");
 				int i=0;
@@ -69,12 +77,6 @@ public class total extends HttpServlet {
 					rs = st.executeQuery("select IFNULL(max(cid),0) from "+catg+" where id='"+id+"'");
 					cid=rs.getInt(1)+1;
 					if(catg=="Mobiles"){
-						String rom=request.getParameter("rom");
-						String color=request.getParameter("color");
-						String specs=request.getParameter("specs");
-						String price=request.getParameter("price");
-						String photo=request.getParameter("photo");
-						String stock=request.getParameter("stock");
 						i=st.executeUpdate("insert into "+catg+"(id,cid,rom,color,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+rom+"','"+color+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
 					}
 					/*
@@ -84,12 +86,26 @@ public class total extends HttpServlet {
 				}
 				else{
 				i=st.executeUpdate("insert into plist(name,brand,descrip,mtitle,mdescrip,mkeyword,catg) values ('"+name+"','"+brand+"','"+descrip+"','"+mtitle+"','"+mdescrip+"','"+mkeyword+"','"+catg+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
+				rs2= st.executeQuery("select * plist where name='"+name+"' and brand= '"+brand+"' and catg= '"+catg+"'");
+				rs.next();
+				id=rs.getInt(1);
+				rs.close();
+				rs = st.executeQuery("select IFNULL(max(cid),0) from "+catg+" where id='"+id+"'");
+				cid=rs.getInt(1)+1;
+				if(catg=="Mobiles"){
+					i=st.executeUpdate("insert into "+catg+"(id,cid,rom,color,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+rom+"','"+color+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
+				}
+				/*
+				 * else if for other categories to be added accordingly
+				 * 
+				 */
 				}
 			}
 			catch(Exception se){
 				se.printStackTrace();
 			}
 			finally{
+				try { if (rs2 != null) rs2.close(); } catch (Exception e) {};	//resultset is closed
 				try { if (rs != null) rs.close(); } catch (Exception e) {};	//resultset is closed
 				try { if (st != null) st.close(); } catch (Exception e) {};	//statement is closed
 				try { if (con != null) con.close(); } catch (Exception e) {};	//connection is closed
