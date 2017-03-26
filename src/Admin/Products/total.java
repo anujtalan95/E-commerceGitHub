@@ -43,7 +43,7 @@ public class total extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		HttpSession session = request.getSession();	//active sessions are checked
-		if(session.getAttribute("admin")==null){	//if admin session does not exist
+		if(session.getAttribute("admin")!=null){	//if admin session does not exist
 												//link admin login page
 		}
 		else{	//if admin session exists
@@ -67,15 +67,16 @@ public class total extends HttpServlet {
 				String catg=request.getParameter("catg");	//category of the product is entered by user on the page is stored in a string
 				con = ConnectionManager.getConnection();	//connection is initialized, port is given, DB name,password are given
 				st= con.createStatement();	//statement is initialized to be queried with the DB
-				rs= st.executeQuery("select * plist where name='"+name+"' and brand= '"+brand+"' and catg= '"+catg+"'");
+				rs= st.executeQuery("select * from plist where title='"+name+"' and brand= '"+brand+"' and catg= '"+catg+"'");
 				int i=0;
 				int cid,id;
-				if(!rs.wasNull()){
-					rs.next();
+				if(rs.next()){
+					System.out.println("first loop");
 					id=rs.getInt(1);
 					rs.close();
 					rs = st.executeQuery("select IFNULL(max(cid),0) from "+catg+" where id='"+id+"'");
 					cid=rs.getInt(1)+1;
+					
 					if(catg=="Mobiles"){
 						i=st.executeUpdate("insert into "+catg+"(id,cid,rom,color,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+rom+"','"+color+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
 					}
@@ -85,13 +86,15 @@ public class total extends HttpServlet {
 					 */
 				}
 				else{
-				i=st.executeUpdate("insert into plist(name,brand,descrip,mtitle,mdescrip,mkeyword,catg) values ('"+name+"','"+brand+"','"+descrip+"','"+mtitle+"','"+mdescrip+"','"+mkeyword+"','"+catg+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
-				rs2= st.executeQuery("select * plist where name='"+name+"' and brand= '"+brand+"' and catg= '"+catg+"'");
-				rs.next();
-				id=rs.getInt(1);
-				rs.close();
-				rs = st.executeQuery("select IFNULL(max(cid),0) from "+catg+" where id='"+id+"'");
-				cid=rs.getInt(1)+1;
+					
+				i=st.executeUpdate("insert into plist(title,brand,descrip,mtitle,mdescrip,mkeywrd,catg) values ('"+name+"','"+brand+"','"+descrip+"','"+mtitle+"','"+mdescrip+"','"+mkeyword+"','"+catg+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
+				rs2= st.executeQuery("select * from plist where title='"+name+"' and brand= '"+brand+"' and catg= '"+catg+"'");
+				rs2.next();
+				id=rs2.getInt(1);
+				rs2.close();
+				rs2 = st.executeQuery("select IFNULL(max(cid),0) from "+catg+" where id='"+id+"'");
+				System.out.println("else loop");
+				cid=rs2.getInt(1)+1;
 				if(catg=="Mobiles"){
 					i=st.executeUpdate("insert into "+catg+"(id,cid,rom,color,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+rom+"','"+color+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
 				}
