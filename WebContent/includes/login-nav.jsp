@@ -1,7 +1,7 @@
 <header class="mdl-layout__header"> 
                 <div class="mdl-layout__header-row"> 
                     <!-- Title -->                     
-                    <span class="mdl-layout-title">Megamart</span> 
+                    <span class="mdl-layout-title">4Shoppers</span> 
                     <!-- Add spacer, to align navigation to the right -->                     
                     <div class="mdl-navigation"> 
                         <div class="mdl-layout-spacer"> 

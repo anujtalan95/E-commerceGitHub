@@ -1,7 +1,22 @@
+<%@ page import="java.sql.*" %>
+<%@ page import="Basic.ConnectionManager" %>
+    <% 
+    Integer uid = (Integer) session.getAttribute("client");
+    Connection con=null;	//connection to the DB is declared
+	Statement st=null;	//statement to be sent to query the DB is declared
+	ResultSet rs=null;
+	
+	con = ConnectionManager.getConnection();	//connection is initialized, port is given, DB name,password are given
+	st= con.createStatement();	//statement is initialized to be queried with the DB
+	rs= st.executeQuery("select * from client_m where id="+uid+"");
+	rs.next();
+	String name=rs.getString("name");
+	rs.close();
+	%>
 <header class="mdl-layout__header"> 
                 <div class="mdl-layout__header-row"> 
                     <!-- Title -->                     
-                    <span class="mdl-layout-title">Megamart</span> 
+                    <span class="mdl-layout-title">4Shoppers</span> 
                     <!-- Add spacer, to align navigation to the right -->                     
                     <div class="mdl-navigation"> 
                         <div class="mdl-layout-spacer"> 
@@ -48,7 +63,7 @@
                         </a>                         
                         <a class="mdl-navigation__link" href=""> 
                             <div class="dropdown"> 
-                                <a href="#category" class="mdl-navigation__link dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0">Welcome User</b>&nbsp;
+                                <a href="#category" class="mdl-navigation__link dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0">Welcome <%=name %></b>&nbsp;
                                 <span class="caret"></span> 
                         </a>                         
                         <ul class="dropdown-menu"> 

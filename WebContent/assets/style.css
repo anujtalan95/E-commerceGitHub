@@ -60,7 +60,7 @@ h5
     }
     .product-carousel .thumbnail h3
     {
-        font-size: 16px;
+        font-size: 12px;
     }
 }
 /* CUSTOMIZE THE NAVBAR
@@ -120,12 +120,12 @@ h5
 
 .mdl-layout__header
 {
-    background-color: rgba(0, 0, 0, 0.72);
+    background-color: #000;
 }
 
 .mdl-layout__header .mdl-layout__drawer-button
 {
-    background-color: #424244;
+    background-color: #000000;
 }
 
 /* Navbar dropdown menu style
@@ -310,8 +310,24 @@ h5
     padding-right: 5px;
 }
 
-.products .row
+.product-carousel .thumbnail h3
 {
+	font-size: 20px;
+}
+
+.product-carousel .thumbnail img
+{
+	height:200px;
+	margin: auto;
+	width: 100px;
+}
+
+@media (max-width: 767px)
+{
+    .product-carousel .thumbnail img
+    {
+        height: 200px;
+    }
 }
 
 /*Brand section
@@ -689,11 +705,9 @@ footer
 /* Product Detail
 -------------------------------------*/
 
-.image-imitation
+.product-detail .product-images .image-imitation
 {
-    background-color: #f8f8f9;
-    text-align: center;
-    padding: 200px 0;
+	background-color: #ffffff;
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 30px;
@@ -702,6 +716,7 @@ footer
 .product-detail .ibox-content
 {
     padding: 15px 30px 20px;
+    width:100%;
 }
 
 .m-t-md
@@ -745,7 +760,7 @@ footer
     }
     #cart-btn
     {
-        right: 50px;
+        right: 40px;
     }
 }
 
