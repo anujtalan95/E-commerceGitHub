@@ -60,7 +60,7 @@ public class Essential extends HttpServlet {
 				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/seo","root","MySQL");	//connection is initialized, port is given, DB name,password are given
 				st= con.createStatement();	//statement is initialized to be queried with the DB
 			
-				int i=st.executeUpdate("insert into client_m(name,brand,descrip,mtitle,mdescrip,mkeyword,catg) values ('"+name+"','"+brand+"','"+descrip+"','"+mtitle+"','"+mdescrip+"','"+mkeyword+"','"+catg+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB 
+				int i=st.executeUpdate("insert into plist(name,brand,descrip,mtitle,mdescrip,mkeyword,catg) values ('"+name+"','"+brand+"','"+descrip+"','"+mtitle+"','"+mdescrip+"','"+mkeyword+"','"+catg+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB 
 				if(i>0)	//int i will be greater then 0 if the update to the DB was successful 
 				{
 					//need to send product data to next page to enter details somehow 

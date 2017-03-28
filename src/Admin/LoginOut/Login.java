@@ -54,7 +54,7 @@ public class Login extends HttpServlet {
 			st= con.createStatement();	//statement is initialized to be queried with the DB
 			rs=st.executeQuery("select * from admins where email='"+email+"'");	//query is executed and the results are stored in the resultset, which includes the entry which has the email entered by user
 			if(rs.next()){	//if an entry is present in the resultset
-                if (rs.getString(2).equals(pwd)) {	//if the password in the entry is the same as the one entered by user
+                if (rs.getString(3).equals(pwd)) {	//if the password in the entry is the same as the one entered by user
                 		HttpSession session = request.getSession();	//session for the user will be created that will keep the user logged in
                 		session.setAttribute("admin",rs.getInt(1));	//an attribute for the session is created and is given the value of the ID of the user from the DB
                 		response.sendRedirect("admin.jsp");	//user is directed to the next page
