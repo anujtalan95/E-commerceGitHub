@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%
-        if (session.getAttribute("admin") == null ){
-        	response.sendRedirect("Adminlogin.html");
-            } %>
+        if (session.getAttribute("admin") != null ){	
+            %>
 <!DOCTYPE html> 
 <html> 
     <head> 
@@ -36,7 +35,7 @@
                                     </li>                                     
                                     <li class="divider"></li>                                     
                                     <li>
-                                        <a href="#">Logout</a>
+                                        <a href="AdminLogout">Logout</a>
                                     </li>                                     
                                 </ul>                                 
                             </div>                             
@@ -45,16 +44,16 @@
 </div>                             
                         </li>                         
                         <li class="active"> 
-                            <a href="admin.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a> 
+                            <a href="admin.jsp"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a> 
                         </li>                         
                         <li class=""> 
-                            <a href="products-table.html"><i class="fa fa-diamond"></i> <span class="nav-label">Products list</span></a> 
+                            <a href="products-table.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">Products list</span></a> 
                         </li>                         
                         <li class=""> 
-                            <a href="orders-table.html"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Orders</span></a>
+                            <a href="orders-table.jsp"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Orders</span></a>
                         </li>                         
                         <li class=""> 
-                            <a href="products-edit.html"><i class="fa fa-table"></i> <span class="nav-label">Product edit</span></a>
+                            <a href="products-edit.jsp"><i class="fa fa-table"></i> <span class="nav-label">Product edit</span></a>
                         </li>                         
                     </ul>                     
                 </div>                 
@@ -70,7 +69,7 @@
                                 <span class="m-r-sm text-muted welcome-message">Welcome to 4Shoppers</span> 
                             </li>                             
                             <li> 
-                                <a href="#"> <i class="fa fa-sign-out"></i> Log out</a> 
+                                <a href="AdminLogout"> <i class="fa fa-sign-out"></i> Log out</a> 
                             </li>                             
                             <li> 
 </li>                             
@@ -215,3 +214,6 @@
         <script src="assets/js/pace.min.js"></script>         
     </body>     
 </html>
+<%  } else { 
+response.sendRedirect("Adminlogin.html");
+} %>
