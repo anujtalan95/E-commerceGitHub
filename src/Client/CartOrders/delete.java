@@ -1,8 +1,8 @@
 package Client.CartOrders;
 
+import Basic.ConnectionManager;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -42,16 +42,17 @@ public class delete extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		String pid = request.getParameter("q");
+		String pid = request.getParameter("cid");
+		String cid = request.getParameter("cid");
 		Connection con=null;
 		Statement st=null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecom","root","MySQL"); 
+			con = ConnectionManager.getConnection();
 			st= con.createStatement();
-			st.executeUpdate("delete from cart where client_id='"+session.getAttribute("client")+"'and product_id='"+pid+"'");
+			st.executeUpdate("delete from cart where client_id='"+session.getAttribute("client")+"'and product_id='"+pid+"'and cid='"+cid+"'");
 			response.sendRedirect("cart.jsp");
 		} 
-		catch (ClassNotFoundException | SQLException e) {
+		catch ( SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

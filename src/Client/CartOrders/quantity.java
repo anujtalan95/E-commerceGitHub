@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Basic.ConnectionManager;
+
 /**
  * Servlet implementation class quantity
  */
@@ -56,25 +58,26 @@ public class quantity extends HttpServlet {
 		//ANUJ!!
 				String q = request.getParameter("q");
 				String p = request.getParameter("p");
+				String catg = request.getParameter("catg");
 				int pid = Integer.parseInt(p);
 				int quantity = Integer.parseInt(q);
-				Class.forName("com.mysql.jdbc.Driver");
-				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecom","root","MySQL");
+				String cid= request.getParameter("cid");
+				con= ConnectionManager.getConnection();
 				st= con.createStatement();
-				rs = st.executeQuery("select * from product where product_id='"+pid+"'");
+				rs = st.executeQuery("select * from "+catg+" where product_id='"+pid+"' and cid'"+cid+"'");
 				rs.next();
-				int price=rs.getInt(3);
+				int price=rs.getInt("price");
 				rs.close();
-				rs = st.executeQuery("select * from cart where client_id='"+session.getAttribute("client")+"' and product_id='"+pid+"'");
+				rs = st.executeQuery("select * from cart where client_id='"+session.getAttribute("client")+"' and product_id='"+pid+"' and cid'"+cid+"'");
 				if(rs.next()){
-					st.executeUpdate("update cart set quantity='"+quantity+"' where client_id='"+session.getAttribute("client")+"' and product_id='"+pid+"'");
-					st.executeUpdate("update cart set sub_total='"+(price*quantity)+"' where client_id='"+session.getAttribute("client")+"' and product_id='"+pid+"'");
+					st.executeUpdate("update cart set quantity='"+quantity+"' where client_id='"+session.getAttribute("client")+"' and product_id='"+pid+"' and cid'"+cid+"'");
+					st.executeUpdate("update cart set sub_total='"+(price*quantity)+"' where client_id='"+session.getAttribute("client")+"' and product_id='"+pid+"' and cid'"+cid+"'");
 				}
 				else{
-					st.executeUpdate("insert into cart(client_id,product_id,quantity,sub_total) values ('"+session.getAttribute("client")+"','"+pid+"','"+quantity+"','"+price+"')");
+					st.executeUpdate("insert into cart(client_id,product_id,cid,quantity,sub_total) values ('"+session.getAttribute("client")+"','"+pid+"','"+cid+",'"+quantity+"','"+price+"')");
 				}
 			} 
-			catch (ClassNotFoundException | SQLException e) {
+			catch ( SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			}
