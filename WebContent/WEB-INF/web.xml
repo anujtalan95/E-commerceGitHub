@@ -34,6 +34,22 @@
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>Admin.LoginOut.AdminLogin</servlet-name>
+    <servlet-class>Admin.LoginOut.AdminLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Admin.LoginOut.AdminLogin</servlet-name>
+    <url-pattern>/AdminLogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Admin.LoginOut.AdminLogout</servlet-name>
+    <servlet-class>Admin.LoginOut.AdminLogout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Admin.LoginOut.AdminLogout</servlet-name>
+    <url-pattern>/AdminLogout</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Admin.Products.total</servlet-name>
     <servlet-class>Admin.Products.total</servlet-class>
   </servlet>
