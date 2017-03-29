@@ -57,22 +57,22 @@ public class cart extends HttpServlet {
 				String catg = request.getParameter("catg");
 				con = ConnectionManager.getConnection();
 				st= con.createStatement();
-				rs=st.executeQuery("select * from cart where client_id='"+session.getAttribute("client")+"' and product_id='"+pid+"' and cid='"+cid+"'"); 
+				rs=st.executeQuery("select * from cart where id='"+session.getAttribute("client")+"' and pid='"+pid+"' and cid='"+cid+"'"); 
 				if(rs.next()){ 
-						st.executeUpdate("update cart set quantity='"+(rs.getInt(3)+1)+"' where client_id='"+rs.getInt(1)+"' and product_id='"+rs.getInt(2)+"' and cid='"+cid+"'"); 	//or insert prod id
-						rsp= st.executeQuery("select * from "+catg+" where product_id='"+pid+"' and cid ='"+cid+"'");
+						st.executeUpdate("update cart set quantity='"+(rs.getInt(3)+1)+"' where id='"+rs.getInt(1)+"' and pid='"+rs.getInt(2)+"' and cid='"+cid+"'"); 	//or insert prod id
+						rsp= st.executeQuery("select * from "+catg+" where pid='"+pid+"' and cid ='"+cid+"'");
 						rsp.next();
-						st.executeUpdate("update cart set sub_total='"+(rs.getInt("quantity")*rsp.getInt("price"))+"' where client_id='"+session.getAttribute("client")+"' and product_id='"+pid+"' and  cid='"+cid+"'");
+						st.executeUpdate("update cart set sub_total='"+(rs.getInt("quantity")*rsp.getInt("price"))+"' where id='"+session.getAttribute("client")+"' and pid='"+pid+"' and  cid='"+cid+"'");
 						rs.close();
 						rsp.close();
 				}
 				else{ 
 					rs.close();
-					rs= st.executeQuery("select * from plist where pid='"+pid+"'");
-					rsp= st.executeQuery("select * from "+catg+" where pid='"+pid+"' and cid='"+cid+"'");
+					rs= st.executeQuery("select * from plist where id='"+pid+"'");
+					rsp= st.executeQuery("select * from "+catg+" where id='"+pid+"' and cid='"+cid+"'");
 					rsp.next();
 					rs.next();
-					st.executeUpdate("insert into cart(client_id,product_id,cid,quantity,sub_total) values ('"+session.getAttribute("client")+"','"+pid+"','"+cid+"''"+1+"','"+rsp.getInt("price")+"')"); 
+					st.executeUpdate("insert into cart(id,pid,cid,quantity,sub_total) values ('"+session.getAttribute("client")+"','"+pid+"','"+cid+"''"+1+"','"+rsp.getInt("price")+"')"); 
 				} 
 			} 
 			catch (SQLException e) {
