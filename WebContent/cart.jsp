@@ -1,4 +1,4 @@
-<%@ page import="java.sql.*,Basic.ConnectionManager,java.util.ArrayList;" %>
+<%@ page import="java.sql.*,Basic.ConnectionManager,java.util.ArrayList" %>
 <% 
 Connection con=null;	//connection to the DB is declared
 Statement st=null;	//statement to be sent to query the DB is declared
@@ -66,7 +66,7 @@ rs.close();
                             		i++;
                             	}
                             	int pid,subTotal;
-                            	for(k=0;k<=i;k++){
+                            	for(k=1;k<=i;k++){
                             		pid=prodid.get(k);
                             		subTotal=subT.get(k);
                             		System.out.println("in loop");
