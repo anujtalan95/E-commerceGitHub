@@ -251,7 +251,7 @@
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Stock:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="number" class="form-control" min="0" placeholder="Stock Quantity" id="book-stock"> 
+                                                <input type="number" class="form-control" min="1" placeholder="Stock Quantity" id="book-stock"> 
                                             </div>                                             
                                         </div>                                         
                                         

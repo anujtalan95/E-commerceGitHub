@@ -60,11 +60,13 @@ public class total extends HttpServlet {
 				String rom=request.getParameter("rom");
 				String color=request.getParameter("color");
 				String specs=request.getParameter("specs");
-				String price=request.getParameter("price"); 
+				String pric=request.getParameter("price");
+				int price= Integer.parseUnsignedInt(pric);
 				String photo=request.getParameter("photo");
-				String stock=request.getParameter("stock");
+				String productStock=request.getParameter("stock");
+				int stock= Integer.parseUnsignedInt(productStock);
 				String catg=request.getParameter("catg"); //category of the product is entered by user on the page is stored in a string
-				System.out.print("category : "+catg);
+				System.out.print("stock : "+stock);
 				
 				con = ConnectionManager.getConnection();	//connection is initialized, port is given, DB name,password are given
 				st= con.createStatement();	//statement is initialized to be queried with the DB
@@ -80,11 +82,11 @@ public class total extends HttpServlet {
 					cid=rs.getInt(1)+1;
 					
 					if(catg.equals("mobiles")){
-						i=st.executeUpdate("insert into "+catg+"(id,cid,rom,color,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+rom+"','"+color+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
+						i=st.executeUpdate("insert into "+catg+"(id,cid,rom,color,specs,price,photo,stock) values ("+id+","+cid+",'"+rom+"','"+color+"','"+specs+"',"+price+",'"+photo+"',"+stock+")");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
 					} else if(catg.equals("books")){
-						i=st.executeUpdate("insert into "+catg+"(id,cid,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
+						i=st.executeUpdate("insert into "+catg+"(id,cid,specs,price,photo,stock) values ("+id+","+cid+",'"+specs+"',"+price+",'"+photo+"',"+stock+")");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
 					} else if(catg.equals("miscellaneous")){
-						i=st.executeUpdate("insert into "+catg+"(id,cid,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
+						i=st.executeUpdate("insert into "+catg+"(id,cid,specs,price,photo,stock) values ("+id+","+cid+",'"+specs+"',"+price+",'"+photo+"',"+stock+")");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
 					}
 					/*
 					 * else if for other categories to be added accordingly

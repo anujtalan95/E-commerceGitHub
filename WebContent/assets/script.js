@@ -195,7 +195,7 @@ var snackbarContainer = document.querySelector('#product-toast');
       $.post("total",{name:productname,brand:brandname,descrip:productdesc,catg:mcatg,mtitle:metat,mdescrip:metad,mkeyword:metakey,specs:bookSpec,price:bookPrice,photo:bookUrl,stock:bookStock},function(data){
     	  var msg = {message: 'Product Successfully Added'};
   	    snackbarContainer.MaterialSnackbar.showSnackbar(msg);
-  	    alert("price : "+bookPrice+" url : "+bookUrl);
+  	    alert("price : "+bookPrice+" stock : "+bookStock);
         });
     	   
      });
