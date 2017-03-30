@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
         <meta name="description" content=""> 
         <meta name="author" content=""> 
-        <title>MegaMart</title>         
+        <title>4Shoppers</title>         
         <!-- Bootstrap core CSS -->         
         <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
         <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">  
@@ -72,37 +72,37 @@
                             <div class="row product-carousel">
                     <div class="col-sm-6 col-xs-6 col-md-3"> 
                         <div class="thumbnail"> 
-                            <img src="assets/images/product-img.png" alt=""> 
+                            <a href="product_detail.jsp?pid=3"><img src="assets/images/products/mobiles/motog5/img-1.jpeg" alt=""></a> 
                             <div class="caption"> 
-                                <h3>Thumbnail label</h3> 
-                                <p><a href="#" class="btn btn-default" role="button">Button</a> </p> 
+                                <h3>Moto G5 Plus (Lunar Grey, 32 GB)  (4 GB RAM)</h3> 
+                                <p><a href="product_detail.jsp?pid=3" class="btn btn-default" role="button">Info<i class="fa fa-arrow-right" aria-hidden="true"></i></a> </p> 
                             </div>                             
                         </div>                         
                     </div>
                     <div class="col-sm-6 col-xs-6 col-md-3"> 
                         <div class="thumbnail"> 
-                            <img src="assets/images/product-img.png" alt=""> 
+                            <a href="product_detail.jsp?pid=4"><img src="assets/images/products/mobiles/motom/img-1.jpeg" alt=""></a> 
                             <div class="caption"> 
-                                <h3>Thumbnail label</h3> 
-                                <p><a href="#" class="btn btn-default" role="button">Button</a> </p> 
+                                <h3>Moto M (Gold, 64 GB)  (4 GB RAM)</h3> 
+                                <p><a href="product_detail.jsp?pid=4" class="btn btn-default" role="button">Info<i class="fa fa-arrow-right" aria-hidden="true"></i></a> </p> 
                             </div>                             
                         </div>                         
                     </div>
                     <div class="col-sm-6 col-xs-6 col-md-3"> 
                         <div class="thumbnail"> 
-                            <img src="assets/images/product-img.png" alt=""> 
+                            <a href="product_detail.jsp?pid=5"><img src="assets/images/products/mobiles/motogturbo/img-1.jpeg" alt=""></a> 
                             <div class="caption"> 
-                                <h3>Thumbnail label</h3> 
-                                <p><a href="#" class="btn btn-default" role="button">Button</a> </p> 
+                                <h3>Moto G Turbo Edition (Black, 16 GB)  (2 GB RAM)</h3> 
+                                <p><a href="product_detail.jsp?pid=5" class="btn btn-default" role="button">Info<i class="fa fa-arrow-right" aria-hidden="true"></i></a> </p> 
                             </div>                             
                         </div>                         
                     </div>
                     <div class="col-sm-6 col-xs-6 col-md-3"> 
                         <div class="thumbnail"> 
-                            <img src="assets/images/product-img.png" alt=""> 
+                            <a href="product_detail.jsp?pid=6"><img src="assets/images/products/mobiles/mi5/img-1.jpeg" alt=""></a> 
                             <div class="caption"> 
-                                <h3>Thumbnail label</h3> 
-                                <p><a href="#" class="btn btn-default" role="button">Button</a> </p> 
+                                <h3>Redmi Mi 5 (White, 32 GB)  (3 GB RAM)</h3> 
+                                <p><a href="product_detail.jsp?pid=6" class="btn btn-default" role="button">Info<i class="fa fa-arrow-right" aria-hidden="true"></i></a> </p> 
                             </div>                             
                         </div>                         
                     </div>                     
@@ -189,7 +189,7 @@
                     <!-- App Promo Section -->                     
                     <section> 
                         <div class="container" id="app-section"> 
-                            <h2>MegaMart App Coming Soon</h2> 
+                            <h2>4Shoppers App Coming Soon</h2> 
                             <div class="row" id="app-logo"> 
                                 <div class="col-xs-12 col-md-3"> </div>                                 
                                 <div class="col-xs-12 col-md-3"> 
@@ -260,7 +260,7 @@
                         </div>                         
                         <div class="bottom-bar"> 
                             <div class="container"> 
-                                <small class="copyright">Copyright@2016. MegaMart </small> 
+                                <small class="copyright">Copyright@2016. 4Shoppers</small> 
                             </div>                             
                         </div>                         
                     </footer>                     
