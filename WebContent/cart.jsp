@@ -1,12 +1,14 @@
-<%@ page import="java.sql.*,Basic.ConnectionManager" %>
+<%@ page import="java.sql.*,Basic.ConnectionManager,java.util.ArrayList;" %>
 <% 
 Connection con=null;	//connection to the DB is declared
 Statement st=null;	//statement to be sent to query the DB is declared
+Statement stm=null;
 ResultSet rs=null;
 ResultSet rsp=null;
 
 con = ConnectionManager.getConnection();	//connection is initialized, port is given, DB name,password are given
 st= con.createStatement();	//statement is initialized to be queried with the DB
+stm= con.createStatement();
 rs= st.executeQuery("select count(id) from cart where id='"+session.getAttribute("client")+"'");
 rs.next();
 int count=rs.getInt(1);
@@ -52,33 +54,35 @@ rs.close();
                             </div>    
                             
                             <%
-                            	rsp= st.executeQuery("select * from cart where id='"+session.getAttribute("client")+"'");
+                            	rsp= stm.executeQuery("select * from cart where id='"+session.getAttribute("client")+"'");
                             	System.out.println("before loop");
                             	int i=0;
                             	int k;
+                            	ArrayList<Integer> prodid=new ArrayList<Integer>();
+                            	ArrayList<Integer> subT=new ArrayList<Integer>();
                             	while(rsp.next()){
+                            		prodid.add(rsp.getInt("pid"));
+                            		subT.add(rsp.getInt("sub_total"));
                             		i++;
                             	}
-                            	rsp.close();
-                            	rsp= st.executeQuery("select * from cart where id='"+session.getAttribute("client")+"'");
-                            	//while(rsp.next()) {
-                            		for(k=0;k<=i;k++){
+                            	int pid,subTotal;
+                            	for(k=0;k<=i;k++){
+                            		pid=prodid.get(k);
+                            		subTotal=subT.get(k);
                             		System.out.println("in loop");
                             		rsp.next();
-                            	int pid=rsp.getInt("pid");	
-                            	int subTotal=rsp.getInt("sub_total");
-                            	System.out.println("one");
-                            	rs= st.executeQuery("select * from plist where id='"+pid+"'");
-                            	rs.next();
-                            	String pname=rs.getString("title");
-                            	String catg=rs.getString("catg");
-                            	rs.close();
-                            	System.out.println("two");
-                            	rs=st.executeQuery("select * from "+catg+" where id=(select pid from cart where id='"+session.getAttribute("client")+"')");
-                            	rs.next();
-                            	int productPrice= rs.getInt("price");
-                            	String imgUrl= rs.getString("photo");
-                            	rs.close();
+                            		System.out.println("one");
+                            		rs= st.executeQuery("select * from plist where id='"+pid+"'");
+                            		rs.next();
+                            		String pname=rs.getString("title");
+                            		String catg=rs.getString("catg");
+                            		rs.close();
+                            		System.out.println("two");
+                            		rs=st.executeQuery("select * from "+catg+" where id=(select pid from cart where id='"+session.getAttribute("client")+"')");
+                            		rs.next();
+                            		int productPrice= rs.getInt("price");
+                            		String imgUrl= rs.getString("photo");
+                            		rs.close();
                             %>                           
                             <div class="ibox-content">
                                 <div class="table-responsive12"> 
