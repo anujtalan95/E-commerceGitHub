@@ -84,7 +84,7 @@
             </a>             
         </nav>         
         <div class="mdl-navigation cart"> 
-            <a class="mdl-navigation__link" href=""><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a> 
+            <a class="mdl-navigation__link" href="cart.jsp"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a> 
         </div>         
     </div>     
 </header> 
