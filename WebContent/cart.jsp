@@ -3,6 +3,7 @@
 Connection con=null;	//connection to the DB is declared
 Statement st=null;	//statement to be sent to query the DB is declared
 ResultSet rs=null;
+ResultSet rsp=null;
 
 con = ConnectionManager.getConnection();	//connection is initialized, port is given, DB name,password are given
 st= con.createStatement();	//statement is initialized to be queried with the DB
@@ -51,21 +52,21 @@ rs.close();
                             </div>    
                             
                             <%
-                            	rs= st.executeQuery("select * from cart where id='"+session.getAttribute("client")+"'");
-                            	while(rs.next()) {
+                            	rsp= st.executeQuery("select * from cart where id='"+session.getAttribute("client")+"'");
+                            	while(rsp.next()) {
                             	int pid=rs.getInt("pid");	
                             	int subTotal=rs.getInt("sub_total");
-                            	rs.close();
-                            	rs= st.executeQuery("select * from plist where id='"+pid+"'");
-                            	rs.next();
-                            	String pname=rs.getString("title");
-                            	String catg=rs.getString("catg");
-                            	rs.close();
-                            	rs=st.executeQuery("select * from "+catg+" where id=(select pid from cart where id='"+session.getAttribute("client")+"')");
-                            	rs.next();
-                            	int productPrice= rs.getInt("price");
-                            	String imgUrl= rs.getString("photo");
-                            	rs.close();
+                            	rsp.close();
+                            	rsp= st.executeQuery("select * from plist where id='"+pid+"'");
+                            	rsp.next();
+                            	String pname=rsp.getString("title");
+                            	String catg=rsp.getString("catg");
+                            	rsp.close();
+                            	rsp=st.executeQuery("select * from "+catg+" where id=(select pid from cart where id='"+session.getAttribute("client")+"')");
+                            	rsp.next();
+                            	int productPrice= rsp.getInt("price");
+                            	String imgUrl= rsp.getString("photo");
+                            	rsp.close();
                             %>                           
                             <div class="ibox-content">
                                 <div class="table-responsive12"> 
