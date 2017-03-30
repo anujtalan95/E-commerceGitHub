@@ -54,8 +54,8 @@ rs.close();
                             <%
                             	rsp= st.executeQuery("select * from cart where id='"+session.getAttribute("client")+"'");
                             	while(rsp.next()) {
-                            	int pid=rs.getInt("pid");	
-                            	int subTotal=rs.getInt("sub_total");
+                            	int pid=rsp.getInt("pid");	
+                            	int subTotal=rsp.getInt("sub_total");
                             	rsp.close();
                             	rsp= st.executeQuery("select * from plist where id='"+pid+"'");
                             	rsp.next();
