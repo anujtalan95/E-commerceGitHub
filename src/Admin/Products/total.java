@@ -60,10 +60,12 @@ public class total extends HttpServlet {
 				String rom=request.getParameter("rom");
 				String color=request.getParameter("color");
 				String specs=request.getParameter("specs");
-				String price=request.getParameter("price");
+				String price=request.getParameter("price"); 
 				String photo=request.getParameter("photo");
 				String stock=request.getParameter("stock");
-				String catg=request.getParameter("catg");	//category of the product is entered by user on the page is stored in a string
+				String catg=request.getParameter("catg"); //category of the product is entered by user on the page is stored in a string
+				System.out.print("category : "+catg);
+				
 				con = ConnectionManager.getConnection();	//connection is initialized, port is given, DB name,password are given
 				st= con.createStatement();	//statement is initialized to be queried with the DB
 				rs= st.executeQuery("select * from plist where title='"+name+"' and brand= '"+brand+"' and catg= '"+catg+"'");
@@ -77,8 +79,12 @@ public class total extends HttpServlet {
 					rs.next();
 					cid=rs.getInt(1)+1;
 					
-					if(catg.equals("Mobiles")){
+					if(catg.equals("mobiles")){
 						i=st.executeUpdate("insert into "+catg+"(id,cid,rom,color,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+rom+"','"+color+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
+					} else if(catg.equals("books")){
+						i=st.executeUpdate("insert into "+catg+"(id,cid,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
+					} else if(catg.equals("miscellaneous")){
+						i=st.executeUpdate("insert into "+catg+"(id,cid,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
 					}
 					/*
 					 * else if for other categories to be added accordingly
@@ -99,6 +105,10 @@ public class total extends HttpServlet {
 				System.out.println(cid);
 				if(catg.equals("Mobiles")){
 					i=st.executeUpdate("insert into "+catg+"(id,cid,rom,color,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+rom+"','"+color+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
+				}else if(catg.equals("Books")){
+					i=st.executeUpdate("insert into "+catg+"(id,cid,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
+				} else if(catg.equals("Miscellaneous")){
+					i=st.executeUpdate("insert into "+catg+"(id,cid,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
 				}
 				/*
 				 * else if for other categories to be added accordingly
