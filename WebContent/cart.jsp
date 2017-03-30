@@ -53,20 +53,29 @@ rs.close();
                             
                             <%
                             	rsp= st.executeQuery("select * from cart where id='"+session.getAttribute("client")+"'");
-                            	while(rsp.next()) {
+                            	System.out.println("before loop");
+                            	int i=0;
+                            	int k;
+                            	while(rsp.next()){
+                            		i++;
+                            	}
+                            	//while(rsp.next()) {
+                            		for(k=0;k<=i;k++){
+                            		System.out.println("in loop");
                             	int pid=rsp.getInt("pid");	
                             	int subTotal=rsp.getInt("sub_total");
-                            	rsp.close();
-                            	rsp= st.executeQuery("select * from plist where id='"+pid+"'");
-                            	rsp.next();
-                            	String pname=rsp.getString("title");
-                            	String catg=rsp.getString("catg");
-                            	rsp.close();
-                            	rsp=st.executeQuery("select * from "+catg+" where id=(select pid from cart where id='"+session.getAttribute("client")+"')");
-                            	rsp.next();
-                            	int productPrice= rsp.getInt("price");
-                            	String imgUrl= rsp.getString("photo");
-                            	rsp.close();
+                            	System.out.println("one");
+                            	rs= st.executeQuery("select * from plist where id='"+pid+"'");
+                            	rs.next();
+                            	String pname=rs.getString("title");
+                            	String catg=rs.getString("catg");
+                            	rs.close();
+                            	System.out.println("two");
+                            	rs=st.executeQuery("select * from "+catg+" where id=(select pid from cart where id='"+session.getAttribute("client")+"')");
+                            	rs.next();
+                            	int productPrice= rs.getInt("price");
+                            	String imgUrl= rs.getString("photo");
+                            	rs.close();
                             %>                           
                             <div class="ibox-content">
                                 <div class="table-responsive12"> 
@@ -100,7 +109,7 @@ rs.close();
                                     </div>                                     
                                 </div>                                 
                             </div> 
-                            <% } %>                            
+                            <% System.out.println("end loop");} %>                            
                             <div class="ibox-content" id="place-order-content"> 
                                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--deep-orange-700" id="checkout-button">
                                     <i class="fa fa fa-shopping-cart"></i>
