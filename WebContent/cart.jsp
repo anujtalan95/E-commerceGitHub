@@ -59,9 +59,12 @@ rs.close();
                             	while(rsp.next()){
                             		i++;
                             	}
+                            	rsp.close();
+                            	rsp= st.executeQuery("select * from cart where id='"+session.getAttribute("client")+"'");
                             	//while(rsp.next()) {
                             		for(k=0;k<=i;k++){
                             		System.out.println("in loop");
+                            		rsp.next();
                             	int pid=rsp.getInt("pid");	
                             	int subTotal=rsp.getInt("sub_total");
                             	System.out.println("one");
