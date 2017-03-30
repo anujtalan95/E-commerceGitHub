@@ -6,7 +6,7 @@
     <head> 
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>MegaMart | Products</title>         
+        <title>4Shoppers | Products</title>         
         <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
         <link href="assets/mdl/material.min.css" rel="stylesheet">
         <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet"> 
@@ -37,25 +37,25 @@
                                     </li>                                     
                                     <li class="divider"></li>                                     
                                     <li> 
-                                        <a href="#">Logout</a> 
+                                        <a href="AdminLogout">Logout</a> 
                                     </li>                                     
                                 </ul>                                 
                             </div>                             
                             <div class="logo-element"> 
-                                MM+
+                                4S
 </div>                             
                         </li>                         
                         <li class="active"> 
-                            <a href="admin.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a> 
+                            <a href="admin.jsp"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span></a> 
                         </li>                         
                         <li class=""> 
-                            <a href="products-table.html"><i class="fa fa-diamond"></i> <span class="nav-label">Products list</span></a> 
+                            <a href="products-table.jsp"><i class="fa fa-diamond"></i> <span class="nav-label">Products list</span></a> 
                         </li>                         
                         <li class=""> 
-                            <a href="orders-table.html"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Orders</span></a> 
+                            <a href="orders-table.jsp"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Orders</span></a>
                         </li>                         
                         <li class=""> 
-                            <a href="products-edit.html"><i class="fa fa-table"></i> <span class="nav-label">Product edit</span></a> 
+                            <a href="products-edit.jsp"><i class="fa fa-table"></i> <span class="nav-label">Product edit</span></a>
                         </li>                         
                     </ul>                     
                 </div>                 
@@ -71,7 +71,7 @@
                                 <span class="m-r-sm text-muted welcome-message">Welcome to MegaMart</span> 
                             </li>                             
                             <li> 
-                                <a href="#"> <i class="fa fa-sign-out"></i> Log out</a> 
+                                <a href="AdminLogout"> <i class="fa fa-sign-out"></i> Log out</a> 
                             </li>                             
                             <li> 
 </li>                             
@@ -127,19 +127,19 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Category:</label>
                                             <div class="btn-group col-sm-10" data-toggle="buttons">
-                                                <button type="button" id="mob-catg" class="btn btn-primary" autocomplete="off" value="Mobiles">
+                                                <button type="button" id="mob-catg" class="btn btn-primary" autocomplete="off" value="mobiles">
                                                     Mobiles
 </button>
-                                                <button type="button" id="book-catg" class="btn btn-primary" autocomplete="off">
+                                                <button type="button" id="book-catg" class="btn btn-primary" autocomplete="off" value="books">
                                                     Books
 </button>
-                                                <button type="button" id="cloth-catg" class="btn btn-primary" autocomplete="off">
+                                                <button type="button" id="cloth-catg" class="btn btn-primary" autocomplete="off" value="Clothing">
                                                     Clothings
 </button>
-                                                <button type="button" id="comp-catg" class="btn btn-primary" autocomplete="off">
+                                                <button type="button" id="comp-catg" class="btn btn-primary" autocomplete="off" value="Computers">
                                                     Computer & Accessories
 </button>
-                                                <button type="button" id="game-catg" class="btn btn-primary" autocomplete="off">
+                                                <button type="button" id="game-catg" class="btn btn-primary" autocomplete="off" value="miscellaneous">
                                                     Video Games
 </button>
                                             </div>
@@ -196,6 +196,93 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Price:</label>
                                             <div class="col-sm-10"> 
+                                                <input type="text" class="form-control" placeholder="$500" id="mob-price"> 
+                                            </div>
+                                        </div>                                                                                  
+                                        <div class="form-group"> 
+                                            <label class="col-sm-2 control-label">Image:</label>                                             
+                                            <div class="col-sm-10"> 
+                                                <input type="text" class="form-control" placeholder="Image URL" id="mob-img-url"> 
+                                            </div>                                             
+                                        </div>
+                                        <div class="form-group"> 
+                                            <label class="col-sm-2 control-label">Stock:</label>                                             
+                                            <div class="col-sm-10"> 
+                                                <input type="number" class="form-control" min="0" placeholder="Stock Quantity" id="stock"> 
+                                            </div>                                             
+                                        </div>
+                                        <div class="form-group pull-right"> 
+                                            <div class="col-sm-10"> 
+                                                 <button id="mobiles-info-submit" class="mdl-button mdl-js-button mdl-button--raised" type="button">Submit Button</button>
+                                            </div>                                             
+                                        </div>                                         
+                                    </fieldset>                                     
+                                </div>                                 
+                            </div>                             
+                        </div>
+                        <div class="col-lg-12 books-catg animated fadeInRight">
+                            <div class="tabs-container"> 
+                                <div class="add-new-product"> 
+                                    <h3>Books Category</h3>
+                                </div>                                 
+                                <div class="panel-body"> 
+                                    <fieldset class="form-horizontal"> 
+                                                                                
+                                            <div class="form-group"> 
+                                            <label class="col-sm-2 control-label">Specification:</label>                                             
+                                            <div class="col-sm-10"> 
+                                                <textarea class="summernote" id="book-specs"> 
+                                                    
+                                                </textarea>                                                 
+                                            </div>                                             
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Price:</label>
+                                            <div class="col-sm-10"> 
+                                                <input type="number" class="form-control" placeholder="$500" id="book-price"> 
+                                            </div>
+                                        </div>                                                                                  
+                                        <div class="form-group"> 
+                                            <label class="col-sm-2 control-label">Image:</label>                                             
+                                            <div class="col-sm-10"> 
+                                                <input type="text" class="form-control" placeholder="Image URL" id="book-img-url"> 
+                                            </div>                                             
+                                        </div>
+                                        <div class="form-group"> 
+                                            <label class="col-sm-2 control-label">Stock:</label>                                             
+                                            <div class="col-sm-10"> 
+                                                <input type="number" class="form-control" min="0" placeholder="Stock Quantity" id="book-stock"> 
+                                            </div>                                             
+                                        </div>                                         
+                                        
+                                        <div class="form-group pull-right"> 
+                                            <div class="col-sm-10"> 
+                                                 <button id="books-info-submit" class="mdl-button mdl-js-button mdl-button--raised" type="button">Submit Button</button>
+                                            </div>                                             
+                                        </div>
+                                    </fieldset>                                     
+                                </div>                                 
+                            </div>                             
+                        </div> 
+                        <div class="col-lg-12 clothing-catg animated fadeInRight">
+                            <div class="tabs-container"> 
+                                <div class="add-new-product"> 
+                                    <h3>Clothing Category</h3>
+                                </div>                                 
+                                <div class="panel-body"> 
+                                    <fieldset class="form-horizontal"> 
+                                                                                
+                                            <div class="form-group"> 
+                                            <label class="col-sm-2 control-label">Specification:</label>                                             
+                                            <div class="col-sm-10"> 
+                                                <textarea class="summernote" id="mob-specs"> 
+                                                    
+                                                </textarea>                                                 
+                                            </div>                                             
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Price:</label>
+                                            <div class="col-sm-10"> 
                                                 <input type="text" class="form-control" placeholder="$500" id="price"> 
                                             </div>
                                         </div>                                                                                  
@@ -210,90 +297,61 @@
                                             <div class="col-sm-10"> 
                                                 <input type="number" class="form-control" min="0" placeholder="Stock Quantity" id="stock"> 
                                             </div>                                             
-                                        </div>
+                                        </div>                                         
+                                        
                                         <div class="form-group pull-right"> 
                                             <div class="col-sm-10"> 
-                                                 <button id="product-info-submit" class="mdl-button mdl-js-button mdl-button--raised" type="button">Submit Button</button>
+                                                 <button id="cloths-info-submit" class="mdl-button mdl-js-button mdl-button--raised" type="button">Submit Button</button>
                                             </div>                                             
-                                        </div>                                         
+                                        </div>
                                     </fieldset>                                     
                                 </div>                                 
                             </div>                             
                         </div>
-                        <div class="col-lg-12 books-catg animated fadeInRight">
+                        <div class="col-lg-12 games-catg animated fadeInRight">
                             <div class="tabs-container"> 
                                 <div class="add-new-product"> 
-                                    <h3>Books Category</h3>
+                                    <h3>Video Games & Accessories Category</h3>
                                 </div>                                 
                                 <div class="panel-body"> 
                                     <fieldset class="form-horizontal"> 
-                                        <div class="form-group"> 
-                                            <label class="col-sm-2 control-label">Language:</label>                                             
+                                                                                
+                                            <div class="form-group"> 
+                                            <label class="col-sm-2 control-label">Specification:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="English or Hindi"> 
-                                            </div>                                             
-                                        </div>
-                                        <div class="form-group"> 
-                                            <label class="col-sm-2 control-label">Publisher:</label>                                             
-                                            <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="Publisher Name"> 
-                                            </div>                                             
-                                        </div>                                         
-                                        <div class="form-group"> 
-                                            <label class="col-sm-2 control-label">Description:</label>                                             
-                                            <div class="col-sm-10"> 
-                                                <div class="summernote"> 
-                                                    <h3>Lorem Ipsum is simply</h3> 
-                                                    dummy text of the printing and typesetting industry. 
-                                                    <strong>Lorem Ipsum has been the industry's</strong> standard dummy text ever since the 1500s,
-                                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
-                                                    <br /> 
-                                                </div>                                                 
+                                                <textarea class="summernote" id="game-specs"> 
+                                                    
+                                                </textarea>                                                 
                                             </div>                                             
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Price:</label>
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="$500"> 
+                                                <input type="text" class="form-control" placeholder="$500" id="game-price"> 
                                             </div>
-                                        </div>                                         
-                                        <div class="form-group"> 
-                                            <label class="col-sm-2 control-label">Quantity:</label>                                             
-                                            <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="..."> 
-                                            </div>                                             
-                                        </div>                                         
+                                        </div>                                                                                  
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Image:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="Image URL"> 
+                                                <input type="text" class="form-control" placeholder="Image URL" id="game-img-url"> 
+                                            </div>                                             
+                                        </div>
+                                        <div class="form-group"> 
+                                            <label class="col-sm-2 control-label">Stock:</label>                                             
+                                            <div class="col-sm-10"> 
+                                                <input type="number" class="form-control" min="0" placeholder="Stock Quantity" id="game-stock"> 
                                             </div>                                             
                                         </div>                                         
-                                        <div class="form-group"> 
-                                            <label class="col-sm-2 control-label">Edition:</label>                                             
-                                            <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="Image URL"> 
-                                            </div>                                             
-                                        </div>
-                                        <div class="form-group"> 
-                                            <label class="col-sm-2 control-label">Pages:</label>                                             
-                                            <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="Image URL"> 
-                                            </div>                                             
-                                        </div>
+                                        
                                         <div class="form-group pull-right"> 
                                             <div class="col-sm-10"> 
-                                                <button type="submit" class="btn btn-primary" id="product-info-submit">
-                                                    Submit Product Details
-</button>
+                                                 <button id="games-info-submit" class="mdl-button mdl-js-button mdl-button--raised" type="button">Submit Button</button>
                                             </div>                                             
                                         </div>
                                     </fieldset>                                     
                                 </div>                                 
                             </div>                             
-                        </div>                         
+                        </div>                        
                     </div>                     
                 </div>  
                 <div id="product-toast" class="mdl-js-snackbar mdl-snackbar">
@@ -302,7 +360,7 @@
 </div>               
                 <div class="footer">                     
                     <div> 
-                        <strong>Copyright</strong> Example Company &copy; 2014-2017
+                        <strong>Copyright</strong>4Shoppers &copy; 2014-2017
                     </div>                     
                 </div>                 
             </div>             
@@ -313,11 +371,12 @@
         <script src="assets/mdl/material.min.js"></script>                
         <!-- Custom and plugin javascript -->         
         <script src="assets/script.js"></script>         
-        <script src="assets/js/pace.min.js"></script>         
+        <script src="assets/js/pace.min.js"></script>          
         <!-- SUMMERNOTE -->         
         <script src="assets/css/summernote/summernote.min.js"></script>         
         <!-- Data picker -->         
-        <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>         
+        <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+                
         <script>
     $(document).ready(function(){
 
@@ -330,34 +389,9 @@
             calendarWeeks: true,
             autoclose: true
         });
+        
 
     });
-    
-    $(document).ready(function(){
-        var snackbarContainer = document.querySelector('#product-toast');
-         $("#product-info-submit").click(function(){
-          var productname = $("#product-name").val();
-          var brandname = $("#brand-name").val();
-          var productdesc = $("#product-desc").summernote('code');
-          var metat = $("#meta-title").val();
-          var metad = $("#meta-desc").val();
-          var metakey = $("#meta-key").val();
-          var mcatg = $("#mob-catg").val();
-          var mobrom = $("#rom").val();
-          var mobcolor = $("#color").val();
-          var mobspec = $("#mob-specs").summernote('code');
-          var price = $("#price").val();
-          var iurl = $("#img-url").val();
-          var stock = $("#stock").val();
-      
-               $.post("total",{name:productname,brand:brandname,descrip:productdesc,catg:mcatg,mtitle:metat,mdescrip:metad,mkeyword:metakey,rom:mobrom,color:mobcolor,specs:mobspec,price:price,photo:iurl,stock:stock},function(data){
-             	  var msg = {message: 'Product Successfully Added'};
-           	    snackbarContainer.MaterialSnackbar.showSnackbar(msg);
-           	    alert("catg name :"+mcatg+"--summernote :"+productdesc);
- });
-             	   
-});
-});
 </script>       
     </body>     
 </html>
