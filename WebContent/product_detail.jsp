@@ -22,7 +22,7 @@
 	rs= st.executeQuery("select * from "+catg+" where id="+pid+" and cid=(select MIN(cid) from "+catg+" where id="+pid+")");
 	rs.next();
 	int cid=rs.getInt("cid");
-	String color=rs.getString("color");
+	//String color=rs.getString("color");
 	String specs=rs.getString("specs");
 	int price=rs.getInt("price");
 	String imgurl=rs.getString("photo");
@@ -42,6 +42,7 @@
         <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet"> 
         <!-- Material Design core CSS -->         
         <link href="assets/mdl/material.min.css" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <!-- Slick carousel core CSS -->         
         <link rel="stylesheet" type="text/css" href="assets/slick/slick.css"> 
         <link rel="stylesheet" type="text/css" href="assets/slick/slick-theme.css"> 
@@ -90,14 +91,14 @@
                                         </div>                                         
                                         <div class="col-md-7"> 
                                             <h2 class="font-bold m-b-xs"> 
-                                        <%=name %></h2>                                              
+                                        <%=name %><br><%=brand %></h2>                                              
                                             <hr> 
                                             <div> 
                                             <input type="hidden" id="pid" value="<%=pid %>" />
                                             <input type="hidden" id="cid" value="<%=cid %>" />
                                             <input type="hidden" id="catg" value="<%=catg %>" />
-                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect pull-right" id="cart-btn">Add To Cart</button>                                                  
-                                                <h1 class="product-main-price"><i class="fa fa-inr" aria-hidden="true"></i><%=price %> <small class="text-muted"><%=color %></small> </h1> 
+                                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect pull-right" id="cart-btn">Add To Cart</button><br>                                                  
+                                                <h1 class="product-main-price"><i class="fa fa-inr" aria-hidden="true"></i><%=price %> <small class="text-muted"></small> </h1> 
                                             </div>                                             
                                             <hr> 
                                             <h4>Product description</h4> 
@@ -113,10 +114,14 @@
                         </div>                         
                     </div>                     
                 </div>                 
-            </div>  
             </div>
-            </main>
-            </div>      
+            <div id="addCart-toast" class="mdl-js-snackbar mdl-snackbar">
+                  <div class="mdl-snackbar__text"></div>
+                  <button class="mdl-snackbar__action" type="button"></button>
+            </div>           
+          </div>
+         </main>
+        </div>      
         <!-- Bootstrap/JQuery/Material Design/slick core JavaScript
     =================================================================== -->         
         <!-- Placed at the end of the document so the pages load faster -->         
@@ -127,19 +132,36 @@
         <script src="assets/mdl/material.min.js"></script>         
         <script src="assets/slick/slick.min.js" type="text/javascript"></script>         
         <!-- Custom script for this page -->         
-        <script src="assets/script.js"></script> 
+        <script src="assets/script.js"></script>
+        <%
+        if (session.getAttribute("client") != null ){
+            %> 
         <script>
         $(document).ready(function(){
+        	var snackbarContainer = document.querySelector('#addCart-toast');
             $("#cart-btn").click(function(){
              var p_id = $("#pid").val();
              var c_id = $("#cid").val();
              var catg = $("#catg").val();
                   $.post("cart",{pid:p_id,cid:c_id,catg:catg},function(data){
-   		                    alert("Item added to cart :"+p_id);
+                	  var msg = {message: 'Item Added To Cart'};
+                	    snackbarContainer.MaterialSnackbar.showSnackbar(msg);
                       });
                 	   
                 });
         });
-        </script>        
+        </script>  
+        <% } else { %>  
+        <script type="text/javascript">
+        $(document).ready(function(){
+        	var snackbarContainer = document.querySelector('#addCart-toast');
+            $("#cart-btn").click(function(){
+                	  var msg = {message: 'Login To Add Item in Cart'};
+                	    snackbarContainer.MaterialSnackbar.showSnackbar(msg);
+                	   
+                });
+        });
+        </script> 
+        <% } %>   
     </body>     
 </html>

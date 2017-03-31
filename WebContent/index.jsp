@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
         <meta name="description" content=""> 
-        <meta name="author" content=""> 
+        <meta name="author" content="Anuj Talan And Harsh Chaudhry"> 
         <title>4Shoppers</title>         
         <!-- Bootstrap core CSS -->         
         <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
@@ -42,31 +42,43 @@
                     <!-- Your content goes here -->                     
                     <div class="slider single-item"> 
                         <div class="slide"> 
-                            <h3>1</h3> 
+                            <a href="">
+                                <img src="assets/images/banners/google-pixel-banner.jpg" class="img-responsive">
+                            </a>                             
                         </div>                         
                         <div class="slide"> 
-                            <h3>2</h3> 
+                            <a href="">
+                                <img src="assets/images/banners/horizon-zero-banner.jpg" class="img-responsive">
+                            </a>
                         </div>                         
                         <div class="slide"> 
-                            <h3>3</h3> 
+                            <a href="">
+                                <img src="assets/images/banners/moto-banner.jpg" class="img-responsive">
+                            </a>
                         </div>                         
                         <div class="slide"> 
-                            <h3>4</h3> 
+                            <a href="">
+                                <img src="assets/images/banners/motog-banner.jpg" class="img-responsive">
+                            </a>
                         </div>                         
                         <div class="slide"> 
-                            <h3>5</h3> 
+                            <a href="">
+                                <img src="assets/images/banners/ps4-banner.jpg" class="img-responsive">
+                            </a>
                         </div>                         
                         <div class="slide"> 
-                            <h3>6</h3> 
+                            <a href="">
+                                <img src="assets/images/banners/google-pixel-banner.jpg" class="img-responsive">
+                            </a>                             
                         </div>                         
-                    </div>                     
+                    </div>                      
 
                     <!-- Products Container-->                     
                     <div class="container products"> 
                         <div id="day-deals"> 
                             <div class="row"> 
                                 <div class="col-md-4"> 
-                                    <h2>Deals of the Day</h2> 
+                                    <h2>Best Deals on SmartPhones</h2> 
                                 </div>                                 
                             </div>                             
                             <div class="row product-carousel">
@@ -74,7 +86,9 @@
                         <div class="thumbnail"> 
                             <a href="product_detail.jsp?pid=3"><img src="assets/images/products/mobiles/motog5/img-1.jpeg" alt=""></a> 
                             <div class="caption"> 
-                                <h3>Moto G5 Plus (Lunar Grey, 32 GB)  (4 GB RAM)</h3> 
+                                <h3>Moto G5 Plus (Lunar Grey, 32 GB) (4 GB RAM)</h3> 
+                                <small class="text-muted">Motorola</small>
+                                 <small class="product-cost"><i class="fa fa-inr" aria-hidden="true"></i>16,999</small>
                                 <p><a href="product_detail.jsp?pid=3" class="btn btn-default" role="button">Info<i class="fa fa-arrow-right" aria-hidden="true"></i></a> </p> 
                             </div>                             
                         </div>                         
@@ -83,17 +97,21 @@
                         <div class="thumbnail"> 
                             <a href="product_detail.jsp?pid=4"><img src="assets/images/products/mobiles/motom/img-1.jpeg" alt=""></a> 
                             <div class="caption"> 
-                                <h3>Moto M (Gold, 64 GB)  (4 GB RAM)</h3> 
+                                <h3>Moto M (Gold, 64 GB) (4 GB RAM)</h3> 
+                                <small class="text-muted">Motorola</small>
+                                 <small class="product-cost"><i class="fa fa-inr" aria-hidden="true"></i>17,999</small>
                                 <p><a href="product_detail.jsp?pid=4" class="btn btn-default" role="button">Info<i class="fa fa-arrow-right" aria-hidden="true"></i></a> </p> 
                             </div>                             
                         </div>                         
                     </div>
                     <div class="col-sm-6 col-xs-6 col-md-3"> 
                         <div class="thumbnail"> 
-                            <a href="product_detail.jsp?pid=5"><img src="assets/images/products/mobiles/motogturbo/img-1.jpeg" alt=""></a> 
+                            <a href="product_detail.jsp?pid=7"><img src="assets/images/products/mobiles/mi4i/img-1.jpeg" alt=""></a> 
                             <div class="caption"> 
-                                <h3>Moto G Turbo Edition (Black, 16 GB)  (2 GB RAM)</h3> 
-                                <p><a href="product_detail.jsp?pid=5" class="btn btn-default" role="button">Info<i class="fa fa-arrow-right" aria-hidden="true"></i></a> </p> 
+                                <h3>Mi 4i (Blue, 16 GB) (2 GB RAM)</h3> 
+                                <small class="text-muted">Redmi</small>
+                                 <small class="product-cost"><i class="fa fa-inr" aria-hidden="true"></i>11,999</small>
+                                <p><a href="product_detail.jsp?pid=7" class="btn btn-default" role="button">Info<i class="fa fa-arrow-right" aria-hidden="true"></i></a> </p> 
                             </div>                             
                         </div>                         
                     </div>
@@ -101,7 +119,9 @@
                         <div class="thumbnail"> 
                             <a href="product_detail.jsp?pid=6"><img src="assets/images/products/mobiles/mi5/img-1.jpeg" alt=""></a> 
                             <div class="caption"> 
-                                <h3>Redmi Mi 5 (White, 32 GB)  (3 GB RAM)</h3> 
+                                <h3>Mi 5 (White, 32 GB) (3 GB RAM)</h3>
+                                <small class="text-muted">Redmi</small> 
+                                 <small class="product-cost"><i class="fa fa-inr" aria-hidden="true"></i>22,999</small>
                                 <p><a href="product_detail.jsp?pid=6" class="btn btn-default" role="button">Info<i class="fa fa-arrow-right" aria-hidden="true"></i></a> </p> 
                             </div>                             
                         </div>                         
@@ -111,43 +131,51 @@
                         <div id="best-deals"> 
                             <div class="row"> 
                                 <div class="col-md-4"> 
-                                    <h2>Best Deals on Phones</h2> 
+                                    <h2>Deals of the Day</h2> 
                                 </div>                                 
                             </div>                             
                             <div class="row product-carousel">
                     <div class="col-sm-6 col-xs-6 col-md-3"> 
                         <div class="thumbnail"> 
-                            <img src="assets/images/product-img.png" alt=""> 
+                            <a href="product_detail.jsp?pid=15"><img src="assets/images/products/books/FantasticBeasts/img-1.jpeg" alt=""></a> 
                             <div class="caption"> 
-                                <h3>Thumbnail label</h3> 
-                                <p><a href="#" class="btn btn-default" role="button">Button</a> </p> 
+                                <h3>Fantastic Beasts and Where to Find Them: The Original Screenplay</h3> 
+                                <small class="text-muted">J.K. Rowling</small>
+                                 <small class="product-cost"><i class="fa fa-inr" aria-hidden="true"></i>359</small>
+                                <p><a href="product_detail.jsp?pid=15" class="btn btn-default" role="button">Info<i class="fa fa-arrow-right" aria-hidden="true"></i></a> </p> 
                             </div>                             
                         </div>                         
                     </div>
                     <div class="col-sm-6 col-xs-6 col-md-3"> 
                         <div class="thumbnail"> 
-                            <img src="assets/images/product-img.png" alt=""> 
+                            <a href="product_detail.jsp?pid=18"><img src="assets/images/products/video games/HorizonZero/img-1.jpeg" alt=""></a>
                             <div class="caption"> 
-                                <h3>Thumbnail label</h3> 
-                                <p><a href="#" class="btn btn-default" role="button">Button</a> </p> 
+                                <h3>Horizon Zero Dawn</h3> 
+                                <small class="text-muted">for PS4</small>
+                                 <small class="product-cost"><i class="fa fa-inr" aria-hidden="true"></i>3,999</small>
+                                <p><a href="product_detail.jsp?pid=18" class="btn btn-default" role="button">Info<i class="fa fa-arrow-right" aria-hidden="true"></i></a> </p> 
                             </div>                             
                         </div>                         
                     </div>
                     <div class="col-sm-6 col-xs-6 col-md-3"> 
                         <div class="thumbnail"> 
-                            <img src="assets/images/product-img.png" alt=""> 
+                            <a href="product_detail.jsp?pid=12"><img src="assets/images/products/books/thisisnotyourstory/img-1.jpeg" alt=""></a>
                             <div class="caption"> 
-                                <h3>Thumbnail label</h3> 
-                                <p><a href="#" class="btn btn-default" role="button">Button</a> </p> 
+                                <h3>This is not Your Story</h3> 
+                                <small class="text-muted">English, Savi Sharma</small>
+                                 <small class="product-cost"><i class="fa fa-inr" aria-hidden="true"></i>168</small>
+                                <p><a href="product_detail.jsp?pid=12" class="btn btn-default" role="button">Info<i class="fa fa-arrow-right" aria-hidden="true"></i></a> </p> 
                             </div>                             
                         </div>                         
                     </div>
                     <div class="col-sm-6 col-xs-6 col-md-3"> 
                         <div class="thumbnail"> 
-                            <img src="assets/images/product-img.png" alt=""> 
+                            <a href="product_detail.jsp?pid=23"><img src="assets/images/products/video games/PlayStation4Pro/img-1.jpeg" alt=""></a>
                             <div class="caption"> 
-                                <h3>Thumbnail label</h3> 
-                                <p><a href="#" class="btn btn-default" role="button">Button</a> </p> 
+                                <h3>Sony PlayStation 4 (PS4) Pro 1 TB (Black)</h3> 
+                                <small class="text-muted">Sony</small>
+                                 <small class="product-cost"><i class="fa fa-inr" aria-hidden="true"></i>38,990</small>
+                                <p><a href="product_detail.jsp?pid=23" class="btn btn-default" role="button">Info<i class="fa fa-arrow-right" aria-hidden="true"></i></a> </p> 
                             </div>                             
                         </div>                         
                     </div>                     

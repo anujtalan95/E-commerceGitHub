@@ -67,6 +67,21 @@ $('.product-images').slick({
     ]
   });
 
+/**
+ * Check the validity state and update field accordingly.
+ *
+ * @public
+ */
+MaterialTextfield.prototype.checkValidity = function () {
+  if (this.input_.validity.valid) {
+      this.element_.classList.remove(this.CssClasses_.IS_INVALID);
+  } else {
+      if (this.element_.getElementsByTagName('input')[0].value.length > 0) {
+            this.element_.classList.add(this.CssClasses_.IS_INVALID);
+      }
+  }
+};
+
 $(".login-button").click(function(event){
   event.preventDefault();
   $("#login-Modal").fadeIn("fast");
@@ -195,7 +210,7 @@ var snackbarContainer = document.querySelector('#product-toast');
       $.post("total",{name:productname,brand:brandname,descrip:productdesc,catg:mcatg,mtitle:metat,mdescrip:metad,mkeyword:metakey,specs:bookSpec,price:bookPrice,photo:bookUrl,stock:bookStock},function(data){
     	  var msg = {message: 'Product Successfully Added'};
   	    snackbarContainer.MaterialSnackbar.showSnackbar(msg);
-  	    alert("price : "+bookPrice+" stock : "+bookStock);
+  	   
         });
     	   
      });

@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    
+    <%
+        if (session.getAttribute("admin") == null ){	
+        	response.sendRedirect("Adminlogin.html");
+        }
+            %>
 <!DOCTYPE html> 
 <html> 
     <head> 
@@ -68,7 +72,7 @@
                         </div>                         
                         <ul class="nav navbar-top-links navbar-right"> 
                             <li> 
-                                <span class="m-r-sm text-muted welcome-message">Welcome to MegaMart</span> 
+                                <span class="m-r-sm text-muted welcome-message">Welcome to 4Shoppers</span> 
                             </li>                             
                             <li> 
                                 <a href="AdminLogout"> <i class="fa fa-sign-out"></i> Log out</a> 
@@ -107,13 +111,13 @@
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Name:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="Product name" id="product-name"> 
+                                                <input type="text" class="form-control" placeholder="Product name" id="product-name" required> 
                                             </div>                                             
                                         </div>
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Brand:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="Brand name" id="brand-name"> 
+                                                <input type="text" class="form-control" placeholder="Brand name" id="brand-name" required> 
                                             </div>                                             
                                         </div>                                         
                                         <div class="form-group"> 
@@ -147,19 +151,19 @@
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Meta Tag Title:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="..." id="meta-title"> 
+                                                <input type="text" class="form-control" placeholder="..." id="meta-title" required> 
                                             </div>                                             
                                         </div>                                         
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Meta Tag Description:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="Meta Description" id="meta-desc"> 
+                                                <input type="text" class="form-control" placeholder="Meta Description" id="meta-desc" required> 
                                             </div>                                             
                                         </div>                                         
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Meta Tag Keywords:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="Meta keywords" id="meta-key"> 
+                                                <input type="text" class="form-control" placeholder="Meta keywords" id="meta-key" required> 
                                             </div>                                             
                                         </div>                                         
                                     </fieldset>                                     
@@ -176,13 +180,13 @@
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">ROM:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="Mobile ROM" id="rom"> 
+                                                <input type="text" class="form-control" placeholder="Mobile ROM" id="rom" required> 
                                             </div>                                             
                                         </div>
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Color:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="Product color" id="color"> 
+                                                <input type="text" class="form-control" placeholder="Product color" id="color" required> 
                                             </div>                                             
                                         </div>                                         
                                         <div class="form-group"> 
@@ -196,19 +200,19 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Price:</label>
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="$500" id="mob-price"> 
+                                                <input type="text" class="form-control" placeholder="$500" id="mob-price" required> 
                                             </div>
                                         </div>                                                                                  
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Image:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="Image URL" id="mob-img-url"> 
+                                                <input type="text" class="form-control" placeholder="Image URL" id="mob-img-url" required> 
                                             </div>                                             
                                         </div>
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Stock:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="number" class="form-control" min="0" placeholder="Stock Quantity" id="stock"> 
+                                                <input type="number" class="form-control" min="1" placeholder="Stock Quantity" id="mob-stock" required> 
                                             </div>                                             
                                         </div>
                                         <div class="form-group pull-right"> 
@@ -239,19 +243,19 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Price:</label>
                                             <div class="col-sm-10"> 
-                                                <input type="number" class="form-control" placeholder="$500" id="book-price"> 
+                                                <input type="number" class="form-control" placeholder="$500" id="book-price" required> 
                                             </div>
                                         </div>                                                                                  
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Image:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="Image URL" id="book-img-url"> 
+                                                <input type="text" class="form-control" placeholder="Image URL" id="book-img-url" required> 
                                             </div>                                             
                                         </div>
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Stock:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="number" class="form-control" min="1" placeholder="Stock Quantity" id="book-stock"> 
+                                                <input type="number" class="form-control" min="1" placeholder="Stock Quantity" id="book-stock" required> 
                                             </div>                                             
                                         </div>                                         
                                         
@@ -275,7 +279,7 @@
                                             <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Specification:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <textarea class="summernote" id="mob-specs"> 
+                                                <textarea class="summernote" id="cloth-specs"> 
                                                     
                                                 </textarea>                                                 
                                             </div>                                             
@@ -283,19 +287,19 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Price:</label>
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="$500" id="price"> 
+                                                <input type="text" class="form-control" placeholder="$500" id="cloth-price" required> 
                                             </div>
                                         </div>                                                                                  
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Image:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="Image URL" id="img-url"> 
+                                                <input type="text" class="form-control" placeholder="Image URL" id="cloth-img-url" required> 
                                             </div>                                             
                                         </div>
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Stock:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="number" class="form-control" min="0" placeholder="Stock Quantity" id="stock"> 
+                                                <input type="number" class="form-control" min="0" placeholder="Stock Quantity" id="cloth-stock" required> 
                                             </div>                                             
                                         </div>                                         
                                         
@@ -327,19 +331,19 @@
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Price:</label>
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="$500" id="game-price"> 
+                                                <input type="text" class="form-control" placeholder="$500" id="game-price" required> 
                                             </div>
                                         </div>                                                                                  
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Image:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="text" class="form-control" placeholder="Image URL" id="game-img-url"> 
+                                                <input type="text" class="form-control" placeholder="Image URL" id="game-img-url" required> 
                                             </div>                                             
                                         </div>
                                         <div class="form-group"> 
                                             <label class="col-sm-2 control-label">Stock:</label>                                             
                                             <div class="col-sm-10"> 
-                                                <input type="number" class="form-control" min="0" placeholder="Stock Quantity" id="game-stock"> 
+                                                <input type="number" class="form-control" min="0" placeholder="Stock Quantity" id="game-stock" required> 
                                             </div>                                             
                                         </div>                                         
                                         
