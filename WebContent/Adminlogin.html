@@ -12,7 +12,7 @@
     <link href="assets/mdl/material.min.css" rel="stylesheet"> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <link href="css/animate.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet">
     <link href="assets/admin-style.css" rel="stylesheet">
 
 </head>
@@ -32,12 +32,12 @@
             <p>Login in. To see it in action.</p>
            <form action="AdminLogin" method="post" class="cd-form">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="sample3" name="email">
+                            <input class="mdl-textfield__input" type="text" id="sample3" name="email" required="">
                             <label class="mdl-textfield__label" for="sample3">Enter Email Address</label>
                         </div><br>
                         <!-- Numeric Textfield with Floating Label -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="password" id="sample4" name="pwd">
+                            <input class="mdl-textfield__input" type="password" id="sample4" name="pwd" required="">
                             <label class="mdl-textfield__label" for="sample4">Enter Password</label>
                         </div><br>
                         <!-- Raised button with ripple -->
@@ -51,6 +51,24 @@
     <script src="assets/js/jquery-3.1.1.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/mdl/material.min.js"></script>
+    <script>
+    $(document).ready(function(){
+    /**
+     * Check the validity state and update field accordingly.
+     *
+     * @public
+     */
+    MaterialTextfield.prototype.checkValidity = function () {
+      if (this.input_.validity.valid) {
+          this.element_.classList.remove(this.CssClasses_.IS_INVALID);
+      } else {
+          if (this.element_.getElementsByTagName('input')[0].value.length > 0) {
+                this.element_.classList.add(this.CssClasses_.IS_INVALID);
+          }
+      }
+    };
+    });
+    </script>
 
 </body>
 </html>

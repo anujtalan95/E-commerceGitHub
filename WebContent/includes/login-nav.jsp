@@ -1,7 +1,7 @@
 <header class="mdl-layout__header"> 
                 <div class="mdl-layout__header-row"> 
                     <!-- Title -->                     
-                    <span class="mdl-layout-title">4Shoppers</span> 
+                    <a href="index.jsp"><span class="mdl-layout-title">4Shoppers</span> </a>
                     <!-- Add spacer, to align navigation to the right -->                     
                     <div class="mdl-navigation"> 
                         <div class="mdl-layout-spacer"> 
@@ -34,7 +34,7 @@
                                     <a href="#">Video Games</a> 
                                 </li>                                 
                                 <li> 
-                                    <a href="#">Mobiles & Tablets</a> 
+                                    <a href="mobiles.jsp">Mobiles & Tablets</a> 
                                 </li>                                 
                                 <li> 
                                     <a href="#">Computers & Accessories</a> 
@@ -61,7 +61,7 @@
                 <nav class="mdl-navigation"> 
                     <a class="mdl-navigation__link" href=""><i class="fa fa-book" aria-hidden="true"></i>Books</a> 
                     <a class="mdl-navigation__link" href=""><i class="fa fa-gamepad" aria-hidden="true"></i>Video Games</a> 
-                    <a class="mdl-navigation__link" href=""><i class="fa fa-mobile" aria-hidden="true"></i>Mobiles & Tablets</a> 
+                    <a class="mdl-navigation__link" href="mobiles.jsp"><i class="fa fa-mobile" aria-hidden="true"></i>Mobiles & Tablets</a> 
                     <a class="mdl-navigation__link" href=""><i class="fa fa-desktop" aria-hidden="true"></i>Computer & Accessories</a> 
                     <a class="mdl-navigation__link" href=""><i class="fa fa-child" aria-hidden="true"></i>Clothing</a> 
                     <div class="space-line"></div>
@@ -77,12 +77,12 @@
                     <!-- Textfield with Floating Label -->
                     <form action="Login" method="post" class="cd-form">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="sample3" name="email">
+                            <input class="mdl-textfield__input" type="email" id="sample3" name="email" required>
                             <label class="mdl-textfield__label" for="sample3">Enter Email Address</label>
                         </div>
                         <!-- Numeric Textfield with Floating Label -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="password" id="sample4" name="pwd">
+                            <input class="mdl-textfield__input" type="password" id="sample4" name="pwd" required>
                             <label class="mdl-textfield__label" for="sample4">Enter Password</label>
                             <span class="mdl-textfield__error">Input is not a number!</span>
                         </div>
@@ -101,18 +101,18 @@
                     <!-- Textfield with Floating Label -->
                     <form action="Register" method="post" class="cd-form">
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="sample3" name="name">
-                            <label class="mdl-textfield__label" for="sample3">Enter your name</label>
+                            <input class="mdl-textfield__input" type="text" id="sample2" name="name" required>
+                            <label class="mdl-textfield__label" for="sample2">Enter your name</label>
                         </div>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="sample3" name="email">
+                            <input class="mdl-textfield__input" type="email" id="sample3" name="email" required>
                             <label class="mdl-textfield__label" for="sample3">Enter Email Address</label>
                         </div>
                         <!-- Numeric Textfield with Floating Label -->
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="password" id="sample4" name="pwd">
+                            <input class="mdl-textfield__input" type="password" id="sample4" name="pwd" required>
                             <label class="mdl-textfield__label" for="sample4">Enter Password</label>
-                            <span class="mdl-textfield__error">Input is not a number!</span>
+                            <span class="mdl-textfield__error">Input is not a valid password!</span>
                         </div>
                         <!-- Raised button with ripple -->
                         <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="login-btn">Sign Up</button>

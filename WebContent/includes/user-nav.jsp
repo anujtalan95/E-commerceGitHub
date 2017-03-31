@@ -16,7 +16,7 @@
 <header class="mdl-layout__header"> 
                 <div class="mdl-layout__header-row"> 
                     <!-- Title -->                     
-                    <span class="mdl-layout-title">4Shoppers</span> 
+                    <a href="index.jsp"><span class="mdl-layout-title">4Shoppers</span> </a>
                     <!-- Add spacer, to align navigation to the right -->                     
                     <div class="mdl-navigation"> 
                         <div class="mdl-layout-spacer"> 
@@ -50,7 +50,7 @@
                                         <a href="#">Video Games</a> 
                                     </li>                                     
                                     <li> 
-                                        <a href="#">Mobiles & Tablets</a> 
+                                        <a href="mobiles.jsp">Mobiles & Tablets</a> 
                                     </li>                                     
                                     <li> 
                                         <a href="#">Computers & Accessories</a> 
@@ -94,7 +94,7 @@
     <nav class="mdl-navigation"> 
         <a class="mdl-navigation__link" href=""><i class="fa fa-book" aria-hidden="true"></i>Books</a> 
         <a class="mdl-navigation__link" href=""><i class="fa fa-gamepad" aria-hidden="true"></i>Video Games</a> 
-        <a class="mdl-navigation__link" href=""><i class="fa fa-mobile" aria-hidden="true"></i>Mobiles & Tablets</a> 
+        <a class="mdl-navigation__link" href="mobiles.jsp"><i class="fa fa-mobile" aria-hidden="true"></i>Mobiles & Tablets</a> 
         <a class="mdl-navigation__link" href=""><i class="fa fa-desktop" aria-hidden="true"></i>Computer & Accessories</a> 
         <a class="mdl-navigation__link" href=""><i class="fa fa-child" aria-hidden="true"></i>Clothing</a> 
         <div class="space-line"></div>         
