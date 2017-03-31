@@ -42,8 +42,8 @@ public class total extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		HttpSession session = request.getSession();	//active sessions are checked
-		if(session.getAttribute("admin")!=null){	//if admin session does not exist
-												//link admin login page
+		if(session.getAttribute("admin")==null){	//if admin session does not exist
+			response.sendRedirect("Adminlogin.html");						//link admin login page
 		}
 		else{	//if admin session exists
 			Connection con=null;	//connection to the DB is declared
@@ -66,7 +66,15 @@ public class total extends HttpServlet {
 				String productStock=request.getParameter("stock");
 				int stock= Integer.parseUnsignedInt(productStock);
 				String catg=request.getParameter("catg"); //category of the product is entered by user on the page is stored in a string
-				System.out.print("stock : "+stock);
+				System.out.println("stock : "+name);
+				System.out.println("stock : "+brand);
+				System.out.println("stock : "+catg);
+				System.out.println("stock : "+price);
+				System.out.println("stock : "+photo);
+				System.out.println("stock : "+stock);
+				System.out.println("stock : "+rom);
+				System.out.println("stock : "+descrip);
+				System.out.println("stock : "+specs);
 				
 				con = ConnectionManager.getConnection();	//connection is initialized, port is given, DB name,password are given
 				st= con.createStatement();	//statement is initialized to be queried with the DB
@@ -105,11 +113,11 @@ public class total extends HttpServlet {
 				rs2.next();
 				cid=rs2.getInt(1)+1;
 				System.out.println(cid);
-				if(catg.equals("Mobiles")){
-					i=st.executeUpdate("insert into "+catg+"(id,cid,rom,color,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+rom+"','"+color+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
-				}else if(catg.equals("Books")){
+				if(catg.equals("mobiles")){
+					i=st.executeUpdate("insert into "+catg+"(id,cid,rom,color,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+rom+"','"+color+"',"+specs+",'"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
+				}else if(catg.equals("books")){
 					i=st.executeUpdate("insert into "+catg+"(id,cid,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
-				} else if(catg.equals("Miscellaneous")){
+				} else if(catg.equals("miscellaneous")){
 					i=st.executeUpdate("insert into "+catg+"(id,cid,specs,price,photo,stock) values ('"+id+"','"+cid+"','"+specs+"','"+price+"','"+photo+"','"+stock+"')");	//int i is used to execute statement, uploading email, name and password of the new user who is registering to the DB
 				}
 				/*
