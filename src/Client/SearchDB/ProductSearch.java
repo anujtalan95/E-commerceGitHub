@@ -56,7 +56,7 @@ public class ProductSearch extends HttpServlet {
 				if(!(rslt.contains(rs.getInt(1)))){
 					rslt.add(rs.getInt(1));
 					int pid=rs.getInt(1);
-					response.sendRedirect("product.jsp?id="+pid);
+					response.sendRedirect("product_detail.jsp?pid="+pid);
 				}
 			}
 			rs.close();

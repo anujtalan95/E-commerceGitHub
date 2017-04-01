@@ -20,9 +20,10 @@ rs.close();
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <title>Cart</title>         
-        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> 
         <link rel="stylesheet" type="text/css" href="assets/mdl/material.min.css">
-        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet"> 
+        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet"> 
         <!-- Custom styles for this page -->
         <link href="assets/style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto">
@@ -89,10 +90,13 @@ rs.close();
                             			//rs=st.executeQuery("select * from "+catg+" where id=(select pid from cart where id='"+session.getAttribute("client")+"')");
                             			rs=st.executeQuery("select * from "+catg+" where id='"+rsp.getInt(1)+"'");
                             			rs.next();
+                            			int cid=rs.getInt("cid");
                             			int productPrice= rs.getInt("price");
                             			String imgUrl= rs.getString("photo");
                             			System.out.println("photo "+imgUrl);
                             			System.out.println("price "+productPrice);
+                            			System.out.println("pid "+pid);
+                            			System.out.println("cid "+cid);
                             			rs.close();
                             		//}
                             		//rsp.close();
@@ -112,7 +116,9 @@ rs.close();
                                                 <%=catg %>
 </div>                                             
                                             <div class="m-t-sm"> 
-                                                <a href="#" class="text-muted"><i class="fa fa-trash"></i> Remove item</a> 
+                                            <input type="hidden" value="<%=pid %>" class="pid" name="<%=pid %>">
+                                            <input type="hidden" value="<%=cid %>" class="cid" name="<%=cid %>">
+                                                <button class="text-muted" id="remove-item"><i class="fa fa-trash"></i> Remove item</button> 
                                             </div>                                             
                                         </div>                                         
                                         <div class="col-md-2"> 
@@ -185,8 +191,46 @@ rs.close();
      </div>        
         <!-- Mainly scripts -->         
         <script src="assets/js/jquery-3.1.1.min.js"></script>         
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>         
-        <script src="assets/mdl/material.min.js"></script>  
-        <script src="assets/script.js"></script>       
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>          
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>       
+        <script src="assets/js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>         
+        <script src="assets/mdl/material.min.js"></script>           
+        <!-- custom javascript for this page -->      
+        <script src="assets/script.js"></script> 
+        <script type="text/javascript">
+        /* fetch data from database in json format and displaying in autocomplete search box */
+      $(document).ready(function(){
+     	$.ajax({
+     	    type: "GET",
+     	    url: 'PopulateTable',
+     	    dataType: "json",
+     	    data: {
+     	        type: $("#search").val()
+     	    },
+     	    success: function (data) {
+     	        var source = $.map(data, function(c) {
+     	            return { label: c.title, value: c.title };
+     	        });
+     	        $("#search").autocomplete({
+     	            source: source,
+     	            minLength: 1
+     	        });
+     	    }
+     	});
+      });
+ 
+        $(document).ready(function() {
+        $("#remove-item").click(function(){
+	    	 var p_id = $(this).closest('div').find(".pid").val();
+	    	 var c_id = $(this).closest('div').find(".cid").val();
+	        $.post("delete",{pid:p_id,cid:c_id},function(data){	
+	             location.reload();
+	    	});
+	    
+	    });
+        });
+        </script>     
     </body>     
 </html>

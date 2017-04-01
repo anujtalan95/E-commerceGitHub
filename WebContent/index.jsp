@@ -11,7 +11,8 @@
         <title>4Shoppers</title>         
         <!-- Bootstrap core CSS -->         
         <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
-        <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">  
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">  
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">  
         <!-- Material Design core CSS -->         
         <link href="assets/mdl/material.min.css" rel="stylesheet"> 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -298,13 +299,38 @@
         <!-- Bootstrap/JQuery/Material Design/slick core JavaScript
     =================================================================== -->         
         <!-- Placed at the end of the document so the pages load faster -->         
-        <script src="assets/js/jquery-3.1.1.min.js"></script>         
+        <script src="assets/js/jquery-3.1.1.min.js"></script>        
         <script src="assets/js/jquery-migrate-1.4.1.min.js"></script>              
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>         
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>       
         <script src="assets/js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>         
         <script src="assets/mdl/material.min.js"></script>         
         <script src="assets/slick/slick.min.js" type="text/javascript"></script>   
         <!-- custom javascript for this page -->      
-        <script src="assets/script.js"></script>         
+        <script src="assets/script.js"></script> 
+        <script type="text/javascript">
+        /* fetch data from database in json format and displaying in autocomplete search box */
+      $(document).ready(function(){
+     	$.ajax({
+     	    type: "GET",
+     	    url: 'PopulateTable',
+     	    dataType: "json",
+     	    data: {
+     	        type: $("#search").val()
+     	    },
+     	    success: function (data) {
+     	        var source = $.map(data, function(c) {
+     	            return { label: c.title, value: c.title };
+     	        });
+     	        $("#search").autocomplete({
+     	            source: source,
+     	            minLength: 1
+     	        });
+     	    }
+     	});
+      });
+        </script>   
     </body>     
 </html>

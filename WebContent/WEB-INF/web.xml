@@ -57,4 +57,12 @@
     <servlet-name>Admin.Products.total</servlet-name>
     <url-pattern>/total</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Client.SearchDB.ProductSearch</servlet-name>
+    <servlet-class>Client.SearchDB.ProductSearch</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Client.SearchDB.ProductSearch</servlet-name>
+    <url-pattern>/ProductSearch</url-pattern>
+  </servlet-mapping>
 </web-app>
