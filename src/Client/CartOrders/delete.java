@@ -42,14 +42,14 @@ public class delete extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		String pid = request.getParameter("cid");
+		String pid = request.getParameter("pid");
 		String cid = request.getParameter("cid");
 		Connection con=null;
 		Statement st=null;
 		try {
 			con = ConnectionManager.getConnection();
 			st= con.createStatement();
-			st.executeUpdate("delete from cart where client_id='"+session.getAttribute("client")+"'and product_id='"+pid+"'and cid='"+cid+"'");
+			st.executeUpdate("delete from cart where id='"+session.getAttribute("client")+"'and pid='"+pid+"'and cid='"+cid+"'");
 			response.sendRedirect("cart.jsp");
 		} 
 		catch ( SQLException e) {
