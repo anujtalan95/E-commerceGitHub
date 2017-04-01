@@ -1,4 +1,4 @@
-package PlacedOrders;
+package Client.PlacedOrders;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import Basic.ConnectionManager;
 
 /**
  * Servlet implementation class products
@@ -47,25 +49,35 @@ public class products extends HttpServlet {
 		Statement st=null;
 		Statement stm=null;
 		ResultSet rs=null;
+		ResultSet rsp=null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecom","root","MySQL"); 
+			con = ConnectionManager.getConnection();
 			st= con.createStatement();
 			stm= con.createStatement();
-			rs= st.executeQuery("select max(order_id) from order_list");
+			rs= st.executeQuery("select max(order_id) from order_list where client_id='"+session.getAttribute("client")+"'");
 			rs.next();
 			int id=rs.getInt(1);
 			rs.close();
 			rs= st.executeQuery("select * from cart where client_id='"+session.getAttribute("client")+"'");
-			int product_id;
+			int pid;
 			int quantity;
 			int sub_total;
+			int cid;
+			String catg;
+			int stock;
 			System.out.println("variables settled");
 			while(rs.next()){
-				product_id=rs.getInt(2);
-				quantity=rs.getInt(3);
-				sub_total=rs.getInt(4);
-				stm.executeUpdate("insert into order_detail values('"+id+"','"+product_id+"','"+quantity+"','"+sub_total+"')");
+				pid=rs.getInt(2);
+				quantity=rs.getInt(4);
+				sub_total=rs.getInt(5);
+				cid = rs.getInt(3);
+				rsp=stm.executeQuery("select catg from plist where id='"+pid+"'");
+				catg=rsp.getString(1);
+				rsp.close();
+				rsp=stm.executeQuery("select stock from "+catg+" where id='"+pid+"' and cid='"+cid+"'");
+				stock = rsp.getInt(1)-quantity;
+				stm.executeUpdate("insert into order_detail values('"+id+"','"+pid+"','"+cid+"','"+quantity+"','"+sub_total+"')");
+				stm.executeUpdate("update "+catg+" set stock='"+stock+"' where id='"+pid+"' and cid='"+cid+"'");
 				System.out.println("list settling.......");
 			}
 			System.out.println("list settled");
@@ -73,11 +85,12 @@ public class products extends HttpServlet {
 			response.sendRedirect("MyOrders.jsp");
 			System.out.println("cart deletion settled");
 		} 
-		catch (ClassNotFoundException | SQLException e) {
+		catch ( SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		finally{
+			try { if (rsp != null) rsp.close(); } catch (Exception e) {};
 			try { if (rs != null) rs.close(); } catch (Exception e) {};
 			try { if (st != null) st.close(); } catch (Exception e) {};
 			try { if (stm != null) stm.close(); } catch (Exception e) {};

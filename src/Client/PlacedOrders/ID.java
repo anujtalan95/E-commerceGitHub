@@ -1,4 +1,4 @@
-package PlacedOrders;
+package Client.PlacedOrders;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import Basic.ConnectionManager;
 
 /**
  * Servlet implementation class ID
@@ -47,8 +49,7 @@ public class ID extends HttpServlet {
 		Statement st=null;
 		ResultSet rs=null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecom","root","MySQL"); 
+			con=ConnectionManager.getConnection();
 			st= con.createStatement();
 			rs = st.executeQuery("select SUM(quantity) from cart where client_id='"+session.getAttribute("client")+"'");
 			rs.next();
@@ -62,7 +63,7 @@ public class ID extends HttpServlet {
 			rd.forward(request , response);
 			System.out.println("ID settled");
 		} 
-		catch (ClassNotFoundException | SQLException e) {
+		catch ( SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
