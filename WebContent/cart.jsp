@@ -65,8 +65,10 @@ rs.close();
                             		subT.add(rsp.getInt("sub_total"));
                             		i++;
                             	}
+                            	System.out.println("pid size "+prodid.size());
+                            	System.out.println("subT size "+subT.size());
                             	int pid,subTotal;
-                            	for(k=1;k<=i;k++){
+                            	for(k=0;k<i;k++){
                             		pid=prodid.get(k);
                             		subTotal=subT.get(k);
                             		System.out.println("in loop");
@@ -130,7 +132,7 @@ rs.close();
                         </div>                         
                     </div>   
                     <%
-                    rs= st.executeQuery("select SUM(sub_total) from cart where id='"+session.getAttribute("client")+"')");
+                    rs= st.executeQuery("select SUM(sub_total) from cart where id='"+session.getAttribute("client")+"'");
                     rs.next();
                     int grandTotal =rs.getInt(1);
                     rs.close();
