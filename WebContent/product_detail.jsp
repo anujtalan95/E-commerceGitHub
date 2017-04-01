@@ -3,7 +3,7 @@
     <%@ page import="java.sql.*" %>
     <%@ page import="Basic.ConnectionManager" %>
     <% String pid=request.getParameter("pid");
-    Connection con=null;	//connection to the DB is declared
+    Connection con=null;
 	Statement st=null;	//statement to be sent to query the DB is declared
 	ResultSet rs=null;
 	
