@@ -9,10 +9,10 @@
                             <div id="search-box"> 
                                 <div class="form-group"> 
                                     <div class="col-sm-10"> 
-                                        <form action="" method="get"> 
+                                        <form action="ProductSearch" method="post"> 
                                             <div class="input-group"> 
-                                                <input type="text" class="form-control"> 
-                                                <span class="input-group-btn"> <button type="button" class="btn btn-primary"> 
+                                                <input type="text" class="form-control" id="search" name="psearch"> 
+                                                <span class="input-group-btn"> <button type="submit" class="btn btn-primary"> 
                                                         <i class="fa fa-search" aria-hidden="true"></i> 
                                                     </button> </span> 
                                             </div>                                             
@@ -124,3 +124,5 @@
                 </div>
             </div>
             <!--signup box -->
+            
+            

@@ -244,6 +244,9 @@ var snackbarContainer = document.querySelector('#product-toast');
         });
     	   
      });
+ 
+
+
 
 });
 

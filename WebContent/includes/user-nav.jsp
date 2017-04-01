@@ -108,3 +108,26 @@
     </nav>     
 </div> 
 <!-- Navbar Close--> 
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+	    type: "GET",
+	    url: 'PopulateTable',
+	    dataType: "json",
+	    data: {
+	        type: $("#search").val()
+	    },
+	    success: function (data) {
+	        var source = $.map(data, function(c) {
+	            return { label: c.title, value: c.title };
+	        });
+	        $("#search").autocomplete({
+	            source: source,
+	            minLength: 1
+	        });
+	    }
+	});
+
+	});
+        </script> 
+

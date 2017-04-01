@@ -9,7 +9,7 @@
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <title>4Shoppers | Orders</title>         
-        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> 
         <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet"> 
         <!-- FooTable -->         
         <link href="assets/css/footable/footable.core.css" rel="stylesheet"> 
@@ -870,7 +870,7 @@
         </div>         
         <!-- Mainly scripts -->         
         <script src="assets/js/jquery-3.1.1.min.js"></script>         
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>                
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>                
         <!-- Custom and plugin javascript -->         
         <script src="assets/script.js"></script>         
         <script src="assets/js/pace.min.js"></script>         
