@@ -67,12 +67,14 @@ rs.close();
                             	}
                             	System.out.println("pid size "+prodid.size());
                             	System.out.println("subT size "+subT.size());
+                            	rsp.close();
                             	int pid,subTotal;
+                            	rsp=stm.executeQuery("select pid from cart where id='"+session.getAttribute("client")+"'");
                             	for(k=0;k<i;k++){
                             		pid=prodid.get(k);
                             		subTotal=subT.get(k);
                             		System.out.println("in loop");
-                            		rsp.next();
+                            		//rsp.next();
                             		System.out.println("one");
                             		rs= st.executeQuery("select * from plist where id='"+pid+"'");
                             		rs.next();
@@ -80,11 +82,20 @@ rs.close();
                             		String catg=rs.getString("catg");
                             		rs.close();
                             		System.out.println("two");
-                            		rs=st.executeQuery("select * from "+catg+" where id=(select pid from cart where id='"+session.getAttribute("client")+"')");
-                            		rs.next();
-                            		int productPrice= rs.getInt("price");
-                            		String imgUrl= rs.getString("photo");
-                            		rs.close();
+                            		//rsp=stm.executeQuery("select pid from cart where id='"+session.getAttribute("client")+"'");
+                            		//while(rsp.next()){
+                            			rsp.next();
+                            			System.out.println("inside loop");
+                            			//rs=st.executeQuery("select * from "+catg+" where id=(select pid from cart where id='"+session.getAttribute("client")+"')");
+                            			rs=st.executeQuery("select * from "+catg+" where id='"+rsp.getInt(1)+"'");
+                            			rs.next();
+                            			int productPrice= rs.getInt("price");
+                            			String imgUrl= rs.getString("photo");
+                            			System.out.println("photo "+imgUrl);
+                            			System.out.println("price "+productPrice);
+                            			rs.close();
+                            		//}
+                            		//rsp.close();
                             %>                           
                             <div class="ibox-content">
                                 <div class="table-responsive12"> 
@@ -118,7 +129,7 @@ rs.close();
                                     </div>                                     
                                 </div>                                 
                             </div> 
-                            <% System.out.println("end loop");} %>                            
+                            <%  System.out.println("end loop");}rsp.close(); %>                            
                             <div class="ibox-content" id="place-order-content"> 
                                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--deep-orange-700" id="checkout-button">
                                     <i class="fa fa fa-shopping-cart"></i>
