@@ -146,10 +146,10 @@ rs.close();
                                     <i class="fa fa fa-shopping-cart"></i>
                                     <span> Checkout</span>
                                 </button>                 </a>                
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--deep-orange-700">
+                                <a href="index.jsp"><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--deep-orange-700">
                                     <i class="fa fa-arrow-left"></i>
                                     <span>  Continue shopping</span>
-                                </button>                                 
+                                </button> </a>                                
                             </div>                             
                         </div>                         
                     </div>   
@@ -181,10 +181,10 @@ rs.close();
                                 <i class="fa fa fa-shopping-cart"></i>
                                 <span> Checkout</span>
                             </button>             </a>                
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--deep-orange-700">
+                            <a href="index.jsp"><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--deep-orange-700">
                                 <i class="fa fa fa-shopping-cart"></i>
                                 <span> Continue</span>
-                            </button>                             
+                            </button>   </a>                          
                         </div>                         
                     </div>                     
                 </div>                 
