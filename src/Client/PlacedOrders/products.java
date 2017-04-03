@@ -58,7 +58,7 @@ public class products extends HttpServlet {
 			rs.next();
 			int id=rs.getInt(1);
 			rs.close();
-			rs= st.executeQuery("select * from cart where client_id='"+session.getAttribute("client")+"'");
+			rs= st.executeQuery("select * from cart where id='"+session.getAttribute("client")+"'");
 			int pid;
 			int quantity;
 			int sub_total;
@@ -72,17 +72,19 @@ public class products extends HttpServlet {
 				sub_total=rs.getInt(5);
 				cid = rs.getInt(3);
 				rsp=stm.executeQuery("select catg from plist where id='"+pid+"'");
+				rsp.next();
 				catg=rsp.getString(1);
 				rsp.close();
 				rsp=stm.executeQuery("select stock from "+catg+" where id='"+pid+"' and cid='"+cid+"'");
+				rsp.next();
 				stock = rsp.getInt(1)-quantity;
 				stm.executeUpdate("insert into order_detail values('"+id+"','"+pid+"','"+cid+"','"+quantity+"','"+sub_total+"')");
 				stm.executeUpdate("update "+catg+" set stock='"+stock+"' where id='"+pid+"' and cid='"+cid+"'");
 				System.out.println("list settling.......");
 			}
 			System.out.println("list settled");
-			stm.executeUpdate("delete from cart where client_id='"+session.getAttribute("client")+"'");
-			response.sendRedirect("MyOrders.jsp");
+			stm.executeUpdate("delete from cart where id='"+session.getAttribute("client")+"'");
+			response.sendRedirect("myorders.jsp");
 			System.out.println("cart deletion settled");
 		} 
 		catch ( SQLException e) {

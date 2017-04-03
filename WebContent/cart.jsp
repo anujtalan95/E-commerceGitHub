@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <%@ page import="java.sql.*,Basic.ConnectionManager,java.util.ArrayList" %>
 <% 
 Connection con=null;	//connection to the DB is declared
@@ -20,13 +22,16 @@ rs.close();
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <title>Cart</title>         
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> 
-        <link rel="stylesheet" type="text/css" href="assets/mdl/material.min.css">
-        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet"> 
+        <!-- Bootstrap core CSS -->         
+        <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">  
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">  
+        <!-- Material Design core CSS -->         
+        <link href="assets/mdl/material.min.css" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
         <!-- Custom styles for this page -->
         <link href="assets/style.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto">
+
     </head>     
     <body> 
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header"> 
@@ -42,7 +47,7 @@ rs.close();
             <main class="mdl-layout__content"> 
                 <div class="page-content">
                 <% if(count==0){ %>
-                <div class="ibox-content" width="100%" height="30%">Your Shopping Cart is Empty!</div>
+                <div class="ibox-content empty-cart" width="100%" height="30%"><i class="material-icons" style="font-size:80px; margin-top:60px;">add_shopping_cart</i><br>Your Shopping Cart is Empty!</div>
                 <% } else { %>
         <div id="page-wrapper" class="gray-bg">
             <div class="wrapper wrapper-content"> 
@@ -103,11 +108,11 @@ rs.close();
                             %>                           
                             <div class="ibox-content">
                                 <div class="table-responsive12"> 
-                                    <div class="row shoping-cart-table"> 
+                                    <div class="row shopping-cart-table"> 
                                         <div class="col-md-3" width="90"> 
                                             <div class="cart-product-imitation"> 
 </div>                                             
-                                            <img src="<%=imgUrl %>img-1.jpeg" class="img-responsive"> 
+                                            <img src="<%=imgUrl %>img-1.jpeg" class="img-responsive" id="product-img"> 
                                         </div>
                                         <div class="col-md-3 desc"> 
                                             <h3> <a href="#" class="text-navy"> 
@@ -118,7 +123,7 @@ rs.close();
                                             <div class="m-t-sm"> 
                                             <input type="hidden" value="<%=pid %>" class="pid" name="<%=pid %>">
                                             <input type="hidden" value="<%=cid %>" class="cid" name="<%=cid %>">
-                                                <button class="text-muted" id="remove-item"><i class="fa fa-trash"></i> Remove item</button> 
+                                                <button class="text-muted remove" id="<%=pid%>"><i class="fa fa-trash"></i> Remove item</button> 
                                             </div>                                             
                                         </div>                                         
                                         <div class="col-md-2"> 
@@ -126,7 +131,7 @@ rs.close();
                                             
                                         </div>                                         
                                         <div class="col-md-1" width="65"> 
-                                            <input type="number" class="form-control" min="1" max="10"> 
+                                            <input type="number" class="form-control" min="1" max="10" value="1"> 
                                         </div>                                         
                                         <div class="col-md-3"> 
                                             <h4> 
@@ -137,10 +142,10 @@ rs.close();
                             </div> 
                             <%  System.out.println("end loop");}rsp.close(); %>                            
                             <div class="ibox-content" id="place-order-content"> 
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--deep-orange-700" id="checkout-button">
+                                <a href="payment.jsp"><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--deep-orange-700" id="checkout-button">
                                     <i class="fa fa fa-shopping-cart"></i>
                                     <span> Checkout</span>
-                                </button>                                 
+                                </button>                 </a>                
                                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--deep-orange-700">
                                     <i class="fa fa-arrow-left"></i>
                                     <span>  Continue shopping</span>
@@ -172,10 +177,10 @@ rs.close();
                     </div>
                     <div class="m-t-sm">
                         <div class="btn-group"> 
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--deep-orange-700" id="checkout-button">
+                            <a href="payment.jsp"><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--deep-orange-700" id="checkout-button">
                                 <i class="fa fa fa-shopping-cart"></i>
                                 <span> Checkout</span>
-                            </button>                             
+                            </button>             </a>                
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--deep-orange-700">
                                 <i class="fa fa fa-shopping-cart"></i>
                                 <span> Continue</span>
@@ -191,12 +196,12 @@ rs.close();
      </div>        
         <!-- Mainly scripts -->         
         <script src="assets/js/jquery-3.1.1.min.js"></script>         
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>          
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+        <script src="assets/mdl/material.min.js"></script>        
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
   crossorigin="anonymous"></script>       
-        <script src="assets/js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>         
-        <script src="assets/mdl/material.min.js"></script>           
+        <script src="assets/js/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>                    
         <!-- custom javascript for this page -->      
         <script src="assets/script.js"></script> 
         <script type="text/javascript">
@@ -222,14 +227,18 @@ rs.close();
       });
  
         $(document).ready(function() {
-        $("#remove-item").click(function(){
-	    	 var p_id = $(this).closest('div').find(".pid").val();
-	    	 var c_id = $(this).closest('div').find(".cid").val();
-	        $.post("delete",{pid:p_id,cid:c_id},function(data){	
-	             location.reload();
-	    	});
-	    
-	    });
+        	"use strict";
+            var buttons = document.getElementsByClassName('remove');
+            for ( var i in Object.keys( buttons ) ) {
+                buttons[i].onclick = function() {
+                	var p_id = $(this).closest('div').find(".pid").val();
+       	    	 var c_id = $(this).closest('div').find(".cid").val();
+       	        $.post("delete",{pid:p_id,cid:c_id},function(data){	
+       	        	location.reload();
+       	    	});
+                };
+            }
+        
         });
         </script>     
     </body>     

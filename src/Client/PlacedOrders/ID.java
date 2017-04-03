@@ -51,11 +51,11 @@ public class ID extends HttpServlet {
 		try {
 			con=ConnectionManager.getConnection();
 			st= con.createStatement();
-			rs = st.executeQuery("select SUM(quantity) from cart where client_id='"+session.getAttribute("client")+"'");
+			rs = st.executeQuery("select SUM(quantity) from cart where id='"+session.getAttribute("client")+"'");
 			rs.next();
 			int total_quantity=rs.getInt(1);
 			rs.close();
-			rs = st.executeQuery("select SUM(sub_total) from cart where client_id='"+session.getAttribute("client")+"'");
+			rs = st.executeQuery("select SUM(sub_total) from cart where id='"+session.getAttribute("client")+"'");
 			rs.next();
 			int total_cost=rs.getInt(1);
 			st.executeUpdate("insert into order_list(client_id, stamp, total_quantity, total_cost) values('"+session.getAttribute("client")+"',now(),'"+total_quantity+"','"+total_cost+"')");

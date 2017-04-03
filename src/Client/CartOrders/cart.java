@@ -63,7 +63,7 @@ public class cart extends HttpServlet {
 					quantity= rs.getInt(4)+1;
 					st.executeUpdate("update cart set quantity='"+quantity+"' where id='"+session.getAttribute("client")+"' and pid='"+pid+"' and cid='"+cid+"'"); 	//or insert prod id
 					rs.close();
-					rs= st.executeQuery("select * from "+catg+" where pid='"+pid+"' and cid ='"+cid+"'");
+					rs= st.executeQuery("select * from "+catg+" where id='"+pid+"' and cid ='"+cid+"'");
 					rs.next();
 					price=rs.getInt("price");
 					stotal=quantity*price;
