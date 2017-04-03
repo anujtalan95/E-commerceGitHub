@@ -17,6 +17,14 @@
     <servlet-name>Client.Register.Essentials</servlet-name>
     <url-pattern>/Register</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>Client.Register.Details</servlet-name>
+    <servlet-class>Client.Register.Details</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Client.Register.Details</servlet-name>
+    <url-pattern>/Details</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>Client.LoginOut.Login</servlet-name>
     <servlet-class>Client.LoginOut.Login</servlet-class>
@@ -64,5 +72,21 @@
   <servlet-mapping>
     <servlet-name>Client.SearchDB.ProductSearch</servlet-name>
     <url-pattern>/ProductSearch</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Client.PlacedOrders.ID</servlet-name>
+    <servlet-class>Client.PlacedOrders.ID</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Client.PlacedOrders.ID</servlet-name>
+    <url-pattern>/ID</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Client.PlacedOrders.products</servlet-name>
+    <servlet-class>Client.PlacedOrders.products</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Client.PlacedOrders.products</servlet-name>
+    <url-pattern>/products</url-pattern>
   </servlet-mapping>
 </web-app>
