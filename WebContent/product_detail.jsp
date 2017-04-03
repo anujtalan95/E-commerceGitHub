@@ -74,18 +74,18 @@
                                         <div class="col-md-5"> 
                                             <div class="product-images"> 
                                                 <div> 
-                                                    <div class="image-imitation" style="padding:0; background-color: #ffffff;"> 
-                                                       <img src="<%=imgurl %>img-1.jpeg" alt="<%=metat %>" height="450px" style="margin:auto;">
+                                                    <div class="image-imitation" style="background-color: #ffffff;"> 
+                                                       <img src="<%=imgurl %>img-1.jpeg" alt="<%=metat %>" id="product-img" height="500px">
 </div>                                                     
                                                 </div>                                                 
                                                 <div> 
-                                                    <div class="image-imitation" style="padding:0;background-color: #ffffff;"> 
-                                                         <img src="<%=imgurl %>img-2.jpeg" alt="<%=metat %>" height="450px" style="margin:auto;">
+                                                    <div class="image-imitation" style="background-color: #ffffff;"> 
+                                                         <img src="<%=imgurl %>img-2.jpeg" alt="<%=metat %>" id="product-img" height="500px">
 </div>                                                     
                                                 </div>                                                 
                                                 <div> 
-                                                    <div class="image-imitation" style="padding:0;background-color: #ffffff;"> 
-                                                         <img src="<%=imgurl %>img-3.jpeg" alt="<%=metat %>" height="450px" style="margin:auto;">
+                                                    <div class="image-imitation" style="background-color: #ffffff;"> 
+                                                         <img src="<%=imgurl %>img-3.jpeg" alt="<%=metat %>" id="product-img" height="500px">
 </div>                                                     
                                                 </div>                                                 
                                             </div>                                             
