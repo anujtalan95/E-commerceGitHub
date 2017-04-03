@@ -28,10 +28,10 @@
                             <a href="#category" class="mdl-navigation__link dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="0">Shop by <b>Category</b>&nbsp;<span class="caret"></span></a> 
                             <ul class="dropdown-menu"> 
                                 <li> 
-                                    <a href="#">Books</a> 
+                                    <a href="books.jsp">Books</a> 
                                 </li>                                 
                                 <li> 
-                                    <a href="#">Video Games</a> 
+                                    <a href="games.jsp">Video Games</a> 
                                 </li>                                 
                                 <li> 
                                     <a href="mobiles.jsp">Mobiles & Tablets</a> 
@@ -59,8 +59,8 @@
             <div class="mdl-layout__drawer mdl-layout--small-screen-only"> 
                 <span class="mdl-layout-title">Shop by <b>Category</b></span> 
                 <nav class="mdl-navigation"> 
-                    <a class="mdl-navigation__link" href=""><i class="fa fa-book" aria-hidden="true"></i>Books</a> 
-                    <a class="mdl-navigation__link" href=""><i class="material-icons">videogame_asset</i>Video Games</a> 
+                    <a class="mdl-navigation__link" href="books.jsp"><i class="fa fa-book" aria-hidden="true"></i>Books</a> 
+                    <a class="mdl-navigation__link" href="games.jsp"><i class="material-icons">videogame_asset</i>Video Games</a> 
                     <a class="mdl-navigation__link" href="mobiles.jsp"><i class="material-icons">phone_android</i>Mobiles & Tablets</a> 
                     <a class="mdl-navigation__link" href=""><i class="material-icons">laptop_mac</i>Computer & Accessories</a> 
                     <a class="mdl-navigation__link" href=""><i class="fa fa-child" aria-hidden="true"></i>Clothing</a> 
