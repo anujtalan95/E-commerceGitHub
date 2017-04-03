@@ -69,7 +69,7 @@
                         </div>                         
                         <div class="slide"> 
                             <a href="">
-                                <img src="assets/images/banners/google-pixel-banner.jpg" class="img-responsive">
+                                <img src="assets/images/banners/horizon-ps4.jpg" class="img-responsive">
                             </a>                             
                         </div>                         
                     </div>                      
