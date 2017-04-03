@@ -60,13 +60,13 @@
                 <span class="mdl-layout-title">Shop by <b>Category</b></span> 
                 <nav class="mdl-navigation"> 
                     <a class="mdl-navigation__link" href=""><i class="fa fa-book" aria-hidden="true"></i>Books</a> 
-                    <a class="mdl-navigation__link" href=""><i class="fa fa-gamepad" aria-hidden="true"></i>Video Games</a> 
-                    <a class="mdl-navigation__link" href="mobiles.jsp"><i class="fa fa-mobile" aria-hidden="true"></i>Mobiles & Tablets</a> 
-                    <a class="mdl-navigation__link" href=""><i class="fa fa-desktop" aria-hidden="true"></i>Computer & Accessories</a> 
+                    <a class="mdl-navigation__link" href=""><i class="material-icons">videogame_asset</i>Video Games</a> 
+                    <a class="mdl-navigation__link" href="mobiles.jsp"><i class="material-icons">phone_android</i>Mobiles & Tablets</a> 
+                    <a class="mdl-navigation__link" href=""><i class="material-icons">laptop_mac</i>Computer & Accessories</a> 
                     <a class="mdl-navigation__link" href=""><i class="fa fa-child" aria-hidden="true"></i>Clothing</a> 
                     <div class="space-line"></div>
-                    <a class="mdl-navigation__link" href=""><button id="signup-button2" style="background:transparent; border:none;">Sign Up</button></a> 
-                    <a class="mdl-navigation__link" href=""><button id="login-button2" style="background:transparent; border:none;">Login</button></a> 
+                    <a class="mdl-navigation__link" href=""><button id="signup-button2" style="background:transparent; border:none; width:100%; text-align:left;">Sign Up</button></a> 
+                    <a class="mdl-navigation__link" href=""><button id="login-button2" style="background:transparent; border:none; width:100%; text-align:left;">Login</button></a> 
                 </nav>                 
             </div>
             <!-- Navbar Close-->
@@ -84,7 +84,6 @@
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                             <input class="mdl-textfield__input" type="password" id="sample4" name="pwd" required>
                             <label class="mdl-textfield__label" for="sample4">Enter Password</label>
-                            <span class="mdl-textfield__error">Input is not a number!</span>
                         </div>
                         <!-- Raised button with ripple -->
                         <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="login-btn">Login</button>

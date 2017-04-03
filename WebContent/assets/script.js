@@ -53,11 +53,14 @@ $(document).ready(function(){
   });
 
 $('.product-images').slick({
+	variableWidth: true,
+    centerMode: true,
   dots: true,
   responsive: [
     {
       breakpoint: 768,
       settings: {
+    	variableWidth: true,
         arrows:false,
         slidesToShow: 1,
         slidesToScroll: 1,

@@ -12,6 +12,10 @@
 	rs.next();
 	String name=rs.getString("name");
 	rs.close();
+	rs= st.executeQuery("select count(id) from cart where id='"+session.getAttribute("client")+"'");
+	rs.next();
+	int count=rs.getInt(1);
+	rs.close();
 	%>
 <header class="mdl-layout__header"> 
                 <div class="mdl-layout__header-row"> 
@@ -24,10 +28,10 @@
                             <div id="search-box"> 
                                 <div class="form-group"> 
                                     <div class="col-sm-10"> 
-                                        <form action="" method="get"> 
+                                        <form action="ProductSearch" method="post"> 
                                             <div class="input-group"> 
-                                                <input type="text" class="form-control"> 
-                                                <span class="input-group-btn"> <button type="button" class="btn btn-primary"> 
+                                                <input type="text" class="form-control" id="search" name="psearch"> 
+                                                <span class="input-group-btn"> <button type="submit" class="btn btn-primary"> 
                                                         <i class="fa fa-search" aria-hidden="true"></i> 
                                                     </button> </span> 
                                             </div>                                             
@@ -68,13 +72,13 @@
                         </a>                         
                         <ul class="dropdown-menu"> 
                             <li> 
-                                <a href="#">My Profile</a> 
+                                <a href="profile.jsp"><i class="material-icons">account_circle</i>My Profile</a> 
                             </li>                             
                             <li> 
-                                <a href="#">My Orders</a> 
+                                <a href="myorders.jsp"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>My Orders</a> 
                             </li>                             
                             <li> 
-                                <a href="#">My Wishlist</a>
+                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>My Wishlist</a>
                             </li>                             
                             <li> 
                                 <a href="Logout"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a> 
@@ -84,7 +88,7 @@
             </a>             
         </nav>         
         <div class="mdl-navigation cart"> 
-            <a class="mdl-navigation__link" href="cart.jsp"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a> 
+            <a class="mdl-navigation__link" href="cart.jsp"><span class="mdl-badge" data-badge="<%=count %>" ><i class="material-icons" style="font-size:22px; padding:0px; margin-right:10px;">shopping_cart</i></span></a> 
         </div>         
     </div>     
 </header> 
@@ -93,13 +97,13 @@
     <span class="mdl-layout-title">Shop by <b>Category</b></span> 
     <nav class="mdl-navigation"> 
         <a class="mdl-navigation__link" href=""><i class="fa fa-book" aria-hidden="true"></i>Books</a> 
-        <a class="mdl-navigation__link" href=""><i class="fa fa-gamepad" aria-hidden="true"></i>Video Games</a> 
-        <a class="mdl-navigation__link" href="mobiles.jsp"><i class="fa fa-mobile" aria-hidden="true"></i>Mobiles & Tablets</a> 
-        <a class="mdl-navigation__link" href=""><i class="fa fa-desktop" aria-hidden="true"></i>Computer & Accessories</a> 
+        <a class="mdl-navigation__link" href=""><i class="material-icons">videogame_asset</i>Video Games</a> 
+        <a class="mdl-navigation__link" href="mobiles.jsp"><i class="material-icons">phone_android</i>Mobiles & Tablets</a> 
+        <a class="mdl-navigation__link" href=""><i class="material-icons">laptop_mac</i>Computer & Accessories</a> 
         <a class="mdl-navigation__link" href=""><i class="fa fa-child" aria-hidden="true"></i>Clothing</a> 
         <div class="space-line"></div>         
-        <a class="mdl-navigation__link" href=""><i class="fa fa-user" aria-hidden="true"></i>My Profile</a> 
-        <a class="mdl-navigation__link" href=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>My Orders</a> 
+        <a class="mdl-navigation__link" href="profile.jsp"><i class="material-icons">account_circle</i>My Profile</a> 
+        <a class="mdl-navigation__link" href="myorders.jsp"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>My Orders</a> 
         <a class="mdl-navigation__link" href=""><i class="fa fa-heart" aria-hidden="true"></i>My Wishlist</a> 
         <div class="space-line"></div>         
         <a class="mdl-navigation__link" href="Logout">
